@@ -12,31 +12,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Link from 'next/link';
 import React, { useState } from 'react';
+import { cookies } from 'next/headers'
+import apiCreate from "@/actions/apiCreate";
 
 const CreateAdminAccountPage: React.FC = () => {
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
   const [email, setEmail] = useState('');
-
-  const handleSubmit = async () => {
-    const response = await fetch(`${process.env.API_URL}/admin/account/new`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        firstname,
-        lastname,
-        email,
-      }),
-    });
-
-    const data = await response.json();
-    alert(data.message); // Afficher message API ou gérer
-  };
-
+//className="
 return (
-  <Card className="w-[333px]">
+  <Card className="flex-col items-center justify-between w-[333px]">
     <CardHeader>
       <CardTitle>Création de compte Administrateur</CardTitle>
     </CardHeader>
@@ -57,20 +42,14 @@ return (
       type="Mail"
       placeholder="Entrez votre adresse e-mail"
       value={email}
-          onChange={(e) => setEmail(e.target.value)}
-    />
-    <Input
-      type="Mot de passe"
-      placeholder="Entrez votre mot de passe"
-    />
-    <Input
-      type="Confirmation du mot de passe"
-      placeholder="Confirmez votre mot de passe"
+      onChange={(e) => setEmail(e.target.value)}
     />
     </CardContent>
     <CardFooter className="flex justify-between">
       <Button onClick={() => {/* Redirection vers la HomePage */}}>Annuler</Button>
-      <Button variant="outline" onClick={handleSubmit}>Créer un compte</Button>
+      <Link href="/login">
+        <Button variant="outline" onClick={() => apiCreate( firstname, lastname, email )}>Créer un compte</Button>
+      </Link>
     </CardFooter>
     <Link href="/login">
       <Button variant="link">Déjà un compte ? Se connecter !</Button>
