@@ -41,7 +41,7 @@ import apiLogin from "@/actions/apiLogin";
         <Button onClick={() => {/* Redirection vers la HomePage */}}>Annuler</Button>
         <Button variant="outline" onClick={() => apiLogin( email, password )}>Se connecter</Button>
       </CardFooter>
-      <Link href="/create">
+      <Link href="/signup">
         <Button variant="link">Pas de compte ? Créer un compte !</Button>
       </Link>
     </Card>

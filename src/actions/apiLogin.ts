@@ -7,7 +7,7 @@ const apiLogin = async (email: string, password: string) => {
     console.log("Données envoyées :", {email, password});
 
     try {
-        const response = await fetch(`${process.env.API_URL}/admin/auth/login`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/auth/login`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

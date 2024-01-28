@@ -13,13 +13,13 @@ import { Input } from "@/components/ui/input";
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { cookies } from 'next/headers'
-import apiCreate from "@/actions/apiCreate";
+import apiSignup from "@/actions/apiSignup";
 
-const CreateAdminAccountPage: React.FC = () => {
+const SignupAdminAccountPage: React.FC = () => {
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
   const [email, setEmail] = useState('');
-//className="
+
 return (
   <Card className="flex-col items-center justify-between w-[333px]">
     <CardHeader>
@@ -48,7 +48,7 @@ return (
     <CardFooter className="flex justify-between">
       <Button onClick={() => {/* Redirection vers la HomePage */}}>Annuler</Button>
       <Link href="/login">
-        <Button variant="outline" onClick={() => apiCreate( firstname, lastname, email )}>Créer un compte</Button>
+        <Button variant="outline" onClick={() => apiSignup( firstname, lastname, email )}>Créer un compte</Button>
       </Link>
     </CardFooter>
     <Link href="/login">
@@ -58,4 +58,4 @@ return (
 );
 };
 
-export default CreateAdminAccountPage;
+export default SignupAdminAccountPage;

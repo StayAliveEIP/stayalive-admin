@@ -1,4 +1,4 @@
-const apiCreate = async (firstname: string, lastname: string, email: string) => {
+const apiSignup = async (firstname: string, lastname: string, email: string) => {
     if (!firstname.trim() || !lastname.trim() || !email.trim()) {
         alert("Veuillez remplir tous les champs.");
         return 0;
@@ -7,19 +7,20 @@ const apiCreate = async (firstname: string, lastname: string, email: string) => 
     console.log("Données envoyées :", {firstname, lastname, email});
 
     try {
-        const response = await fetch(`${process.env.API_URL}admin/account/new`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/account/new`, {
+
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                firstname,
-                lastname,
-                email,
+                firstname: firstname,
+                lastname: lastname,
+                email: email,
             }),
         });
+        console.log(response);
         const data = await response.json();
-
         console.log("Réponse reçue :", data);
 
         alert(data.message);
@@ -29,4 +30,4 @@ const apiCreate = async (firstname: string, lastname: string, email: string) => 
     return;
 }
 
-export default apiCreate;
+export default apiSignup;
