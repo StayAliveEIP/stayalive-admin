@@ -4,6 +4,7 @@ on: [push]
 
 jobs:
   node-ci:
+    name: Node.js CI
     runs-on: ubuntu-latest
 
     steps:
