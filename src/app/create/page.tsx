@@ -9,29 +9,14 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-const CreateAccountPage: React.FC = () => {
-
-const handleSubmit = async () => {
-  try {
-    const response = await fetch(process.env.API_URL + "/admin/account/new", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-      }),
-    });
-
-    const data = await response.json();
-    console.log(data.message);
-
-  } catch (error) {
-    console.error('Error creating account:', error);
-  }
-};
+const CreateAdminAccountPage: React.FC = () => {
 
 return (
-  <Card>
+  <Card className="w-[350px]">
+    <CardHeader>
+      <CardTitle>Création de compte Administrateur</CardTitle>
+    </CardHeader>
+    <CardContent>
     <Input
       type="Nom"
       placeholder="Entrez votre nom"
@@ -52,9 +37,13 @@ return (
       type="Confirmation du mot de passe"
       placeholder="Confirmez votre mot de passe"
     />
-    <Button variant="secondary">Créer un compte Admin</Button>
+    </CardContent>
+    <CardFooter className="flex justify-between">
+      <Button>Annuler</Button>
+      <Button variant="outline">Créer un compte Admin</Button>
+    </CardFooter>
   </Card>
 );
 };
 
-export default CreateAccountPage;
+export default CreateAdminAccountPage;
