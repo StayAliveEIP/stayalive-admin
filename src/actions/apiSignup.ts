@@ -4,8 +4,6 @@ const apiSignup = async (firstname: string, lastname: string, email: string) => 
         return 0;
     }
 
-    console.log("Données envoyées :", {firstname, lastname, email});
-
     try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/account/new`, {
 
@@ -19,9 +17,8 @@ const apiSignup = async (firstname: string, lastname: string, email: string) => 
                 email: email,
             }),
         });
-        console.log(response);
+        
         const data = await response.json();
-        console.log("Réponse reçue :", data);
 
         alert(data.message);
     } catch (error) {

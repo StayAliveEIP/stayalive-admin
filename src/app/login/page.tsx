@@ -39,7 +39,9 @@ import apiLogin from "@/actions/apiLogin";
       </CardContent>
       <CardFooter className="flex justify-between">
         <Button onClick={() => {/* Redirection vers la HomePage */}}>Annuler</Button>
-        <Button variant="outline" onClick={() => apiLogin( email, password )}>Se connecter</Button>
+        <Link href="/dashboard">
+          <Button variant="outline" onClick={() => apiLogin( email, password )}>Se connecter</Button>
+        </Link>
       </CardFooter>
       <Link href="/signup">
         <Button variant="link">Pas de compte ? Créer un compte !</Button>

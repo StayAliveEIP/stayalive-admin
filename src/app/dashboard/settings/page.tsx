@@ -21,7 +21,7 @@ const SettingsAdmin: React.FC = () => {
     
 
     return (
-      <Card className="w-[999px]">
+      <Card className="w-[444px]">
         <CardHeader>
           <CardTitle>Info du compte</CardTitle>
         </CardHeader>
@@ -29,9 +29,13 @@ const SettingsAdmin: React.FC = () => {
         <CardContent>Nom: {accountLastname}</CardContent>
         <CardContent>Email: {accountEmail}</CardContent>
         <CardContent>Status de votre email: {accountEmailStatus ? 'Valide' : 'En attente de validation'}</CardContent>
-        <CardFooter>
+        <CardFooter className="flex justify-between">
+          <Button variant="destructive">Se deconnecter</Button>
           <Button variant="destructive">Supprimer votre compte</Button>
         </CardFooter>
+        <Link href="/dashboard">
+          <Button variant="link">Retour à votre dashboard</Button>
+        </Link>
       </Card>
     );
 };
