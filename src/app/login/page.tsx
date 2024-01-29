@@ -43,7 +43,7 @@ const LoginAdminAccountPage: React.FC = () => {
       </CardContent>
       <CardFooter className="flex justify-between">
         <Link href="/dashboard">
-          <Button variant="default" onClick={() => apiLogin(email, password)}>Se connecter</Button>ckear
+          <Button variant="default" onClick={() => apiLogin(email, password)}>Se connecter</Button>
         </Link>
       </CardFooter>
       <CardFooter>
