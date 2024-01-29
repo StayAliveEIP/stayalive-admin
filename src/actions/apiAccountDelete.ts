@@ -1,21 +1,20 @@
-const apiDashboardDeleteCC = async (callCenterID: string) => {
-    if (!callCenterID.trim()) {
-        alert("L'ID du call center est requis.");
+const apiAccountDelete = async (accountPassword: string) => {
+    if (!accountPassword.trim()) {
+        alert("Le mot de passe du compte admin est requis.");
         return;
       }
-      console.log("Données envoyées :", {callCenterID});
+    console.log("Données envoyées :", {accountPassword});
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/call-center/delete`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/account/delete`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
                 // Token
             },
             body: JSON.stringify({
-                id: callCenterID
+                password: accountPassword,
             })
         });
-
         if (!response.ok) {
             throw new Error(`Erreur HTTP: ${response.status}`);
         }
@@ -23,8 +22,8 @@ const apiDashboardDeleteCC = async (callCenterID: string) => {
         const result = await response.json();
         console.log("Réponse de l'API :", result);
     } catch (error) {
-        console.error("Erreur lors de la suppression du Call Center:", error);
+        console.error("Erreur lors de la suppression du compte admin:", error);
     }
 }
 
-export default apiDashboardDeleteCC;
+export default apiAccountDelete;

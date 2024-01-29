@@ -11,6 +11,8 @@ import {
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import apiDashboardGetInfo from '@/actions/apiDashboardGetInfo'
+import apiDashboardDeleteCC from '@/actions/apiDashboardDeleteCC'
 
 const DashboardAdmin: React.FC = () => {
     const [callCenterID, setCallCenterID] = useState('');
@@ -39,7 +41,7 @@ const DashboardAdmin: React.FC = () => {
     return (
       <Card className="w-[666px]">
         <CardHeader>
-          <CardTitle>Info les Centre d'appel</CardTitle>
+          <CardTitle>Info les Centre d&#39;appel</CardTitle>
         </CardHeader>
         <CardContent>Nom: {callCenterName}</CardContent>
         <CardHeader>
@@ -49,16 +51,13 @@ const DashboardAdmin: React.FC = () => {
         <CardContent>Ville: {callCenterAddressCity}</CardContent>
         <CardContent>Zip code: {callCenterAddressZip}</CardContent>
         <CardContent>Email: {callCenterEmail}</CardContent>
-        <CardContent>Status de l'email: {callCenterEmail ? 'Valide' : 'En attente de validation'}</CardContent>
+        <CardContent>Status de l&#39;email: {callCenterEmail ? 'Valide' : 'En attente de validation'}</CardContent>
         <CardContent>Téléphone: {callCenterPhone}</CardContent>
         <CardContent>Ambulances disponibles: {callCenterAmbulance}</CardContent>
         <CardContent>Nombre de sauveteurs: {callCenterRescuer}</CardContent>
         <Link href="/dashboard/rescuers">
           <Button variant="link">Voir la liste de tout les sauveteurs</Button>
         </Link>
-        <CardFooter>
-          <Button variant="link">Mettre à jour les infos du centre d'appel</Button>
-        </CardFooter>
         <Card className="w-[666px]">
           <CardHeader>
             <CardTitle>Dernière intervention</CardTitle>
@@ -71,12 +70,15 @@ const DashboardAdmin: React.FC = () => {
               <Button variant="link">Voir toutes les interventions</Button>
             </Link>
           </CardFooter>
+          <CardFooter>
+          <Button variant="link" onClick={() => apiDashboardGetInfo(callCenterID)}>Mettre à jour les infos du centre d&#39;appel</Button>
+        </CardFooter>
         </Card>
         <Link href="/dashboard/create">
-          <Button>Creer un nouveau Centre d'appel</Button>
+          <Button>Creer un nouveau Centre d&#39;appel</Button>
         </Link>
-        <Button variant="destructive">Supprimer un Centre d'appel</Button>
-        <Button variant="link">Voir tout les Centre d'appel</Button>
+        <Button variant="destructive" onClick={() => apiDashboardDeleteCC(callCenterID)}>Supprimer un Centre d&#39;appel</Button>
+        <Button variant="link">Voir tout les Centre d&#39;appel</Button>
         <Link href="/dashboard/settings">
           <Button variant="secondary">Paramètre administrateur</Button>
         </Link>

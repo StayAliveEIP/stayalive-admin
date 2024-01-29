@@ -73,7 +73,7 @@ return (
         <Button variant="destructive">Annuler</Button>
       </Link>
       <Link href="/dashboard">
-        <Button variant="outline" onClick={() => apiDashboardCreateCC(callCenterName, callCenterEmail, callCenterPhone, callCenterAddress)}>Créer un centre d'appel</Button>
+        <Button variant="outline" onClick={() => apiDashboardCreateCC(callCenterName, callCenterEmail, callCenterPhone, callCenterAddress)}>Créer un centre d&#39;appel</Button>
       </Link>
     </CardFooter>
   </Card>
