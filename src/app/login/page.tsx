@@ -15,6 +15,7 @@ import React, {useState} from 'react';
 import apiLogin from "@/actions/apiLogin";
 import {Checkbox} from "@/components/ui/checkbox"
 import {Label} from "@/components/ui/label";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 const LoginAdminAccountPage: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -22,6 +23,10 @@ const LoginAdminAccountPage: React.FC = () => {
 
   return (
     <Card className="w-[333px] m-auto mt-20">
+      <Avatar className="m-auto mt-5">
+        <AvatarImage src="https://cdn.discordapp.com/attachments/1130401857890697285/1190320898281066607/logo_Background_Removed.png?ex=65c649b9&is=65b3d4b9&hm=cf3172e52f346ff143dc992987a9a9dbe37e7baf1044928746c16f1637aa9ce1&" />
+        <AvatarFallback>CN</AvatarFallback>
+      </Avatar>
       <CardHeader>
         <CardTitle>Connection</CardTitle>
       </CardHeader>
@@ -59,9 +64,6 @@ const LoginAdminAccountPage: React.FC = () => {
           </div>
         </div>
       </CardFooter>
-      <Link href="/signup">
-        <Button variant="link">Pas de compte ? Créer un compte !</Button>
-      </Link>
     </Card>
   );
 };

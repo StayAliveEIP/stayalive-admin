@@ -14,6 +14,7 @@ import { useEffect, useState } from 'react';
 import apiAccountDeleteID from '@/actions/apiAccountDeleteID'
 import { Input } from "@/components/ui/input";
 import apiAccountDelete from '@/actions/apiAccountDelete'
+import apiDeconnexion from '@/actions/apiDeconnexion'
 
 const SettingsAdmin: React.FC = () => {
     const [accountID, setAccountID] = useState('');
@@ -34,7 +35,9 @@ const SettingsAdmin: React.FC = () => {
         <CardContent>Email: {accountEmail}</CardContent>
         <CardContent>Status de votre email: {accountEmailStatus ? 'Valide' : 'En attente de validation'}</CardContent>
         <CardFooter className="flex justify-between">
-          <Button variant="destructive">Se deconnecter</Button>
+          <Link href="/login">
+            <Button variant="destructive" onClick={() => apiDeconnexion}>Se deconnecter</Button>
+          </Link>
         </CardFooter>
         <CardFooter className="flex justify-between">
           <Button variant="destructive" onClick={() => apiAccountDeleteID(accountID)}>Supprimer votre compte (ID)</Button>
