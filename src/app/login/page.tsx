@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input";
 import Link from 'next/link';
 import React, { useState } from 'react';
 import apiLogin from "@/actions/apiLogin";
+import { Checkbox } from "@/components/ui/checkbox"
   
   const LoginAdminAccountPage: React.FC = () => {
     const [email, setEmail] = useState('');
@@ -42,6 +43,19 @@ import apiLogin from "@/actions/apiLogin";
         <Link href="/dashboard">
           <Button variant="outline" onClick={() => apiLogin( email, password )}>Se connecter</Button>
         </Link>
+      </CardFooter>
+      <CardFooter>
+      <div className="items-top flex space-x-2">
+      <Checkbox id="connect" />
+      <div className="grid gap-1.5 leading-none">
+        <label
+          htmlFor="terms1"
+          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        >
+          Rester connecter
+        </label>
+      </div>
+    </div>
       </CardFooter>
       <Link href="/signup">
         <Button variant="link">Pas de compte ? Créer un compte !</Button>
