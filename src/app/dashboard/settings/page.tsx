@@ -14,6 +14,8 @@ import { useEffect, useState } from 'react';
 import apiAccountDeleteID from '@/actions/apiAccountDeleteID'
 import { Input } from "@/components/ui/input";
 import apiAccountDelete from '@/actions/apiAccountDelete'
+import apiDeconnexion from '@/actions/apiDeconnexion'
+import {Label} from "@/components/ui/label";
 
 const SettingsAdmin: React.FC = () => {
     const [accountID, setAccountID] = useState('');
@@ -25,23 +27,23 @@ const SettingsAdmin: React.FC = () => {
     
 
     return (
-      <Card className="w-[555px]">
+      <Card className="w-[555px] m-auto mt-20">
         <CardHeader>
           <CardTitle>Info du compte</CardTitle>
         </CardHeader>
-        <CardContent>Prenom: {accountFirstname}</CardContent>
-        <CardContent>Nom: {accountLastname}</CardContent>
-        <CardContent>Email: {accountEmail}</CardContent>
+        <CardContent>Prenom: John {accountFirstname}</CardContent>
+        <CardContent>Nom: Doe {accountLastname}</CardContent>
+        <CardContent>Email: jonh@doe.net {accountEmail}</CardContent>
         <CardContent>Status de votre email: {accountEmailStatus ? 'Valide' : 'En attente de validation'}</CardContent>
         <CardFooter className="flex justify-between">
-          <Button variant="destructive">Se deconnecter</Button>
+          <Link href="/login">
+            <Button variant="destructive" onClick={() => apiDeconnexion}>Se deconnecter</Button>
+          </Link>
         </CardFooter>
-        <CardFooter className="flex justify-between">
-          <Button variant="destructive" onClick={() => apiAccountDeleteID(accountID)}>Supprimer votre compte (ID)</Button>
-        </CardFooter>
+        <Label htmlFor="password" className="mx-5">Mot de passe</Label>
         <CardFooter className="flex justify-between">
           <Input
-            type="Mot de passe"
+            type="password"
             placeholder="Entrez votre mot de passe"
             value={accountPassword}
             onChange={(e) => setAccountPassword(e.target.value)}
@@ -56,3 +58,9 @@ const SettingsAdmin: React.FC = () => {
 };
 
 export default SettingsAdmin;
+
+/*
+        <CardFooter className="flex justify-between">
+          <Button variant="destructive" onClick={() => apiAccountDeleteID(accountID)}>Supprimer votre compte (ID)</Button>
+        </CardFooter>
+*/

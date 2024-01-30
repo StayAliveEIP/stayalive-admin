@@ -14,7 +14,7 @@ import { useEffect, useState } from 'react';
 
 const RescuerList: React.FC = () => {
     return (
-      <Card className="w-[555px]">
+      <Card className="w-[555px] m-auto mt-20">
         <CardHeader>
           <CardTitle>Liste des sauveteurs</CardTitle>
         </CardHeader>
