@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/menubar"
 
 const RescuerList: React.FC = () => {
+    //Fake Data
     return (
       <div>
       <Menubar className="flex justify-between w-[1369px] m-auto mt-2">
@@ -38,10 +39,14 @@ const RescuerList: React.FC = () => {
       </Menubar>
       <Card className="w-[555px] m-auto mt-20">
         <CardHeader>
-          <CardTitle>Liste des interventions</CardTitle>
+          <CardTitle>Infos de l&#39;administrateur</CardTitle>
         </CardHeader>
-        <Link href="/dashboard">
-          <Button variant="link">Retour à votre dashboard</Button>
+        <CardContent>Felix</CardContent>
+        <CardContent>Buisson</CardContent>
+        <CardContent>felix.buisson@epitech.eu</CardContent>
+        <CardContent>Etat de l&#39;email : Valide</CardContent>
+        <Link href="/admin">
+          <Button variant="link">Retour à la liste des administrateurs</Button>
         </Link>
       </Card>
       </div>
