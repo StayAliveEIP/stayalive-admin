@@ -1,6 +1,13 @@
+import { toast } from "sonner"
+
 const apiDashboardCreateCC = async (callCenterName: string, callCenterEmail: string, callCenterPhone: string, callCenterAddress: { callCenterStreet: string, callCenterCity:string, callCenterZip:string }) => {
     if (!callCenterName.trim() || !callCenterEmail.trim() || !callCenterPhone.trim()) {
-        alert("Veuillez remplir tous les champs.");
+        toast("Veuillez remplir tous les champs.", {
+            action: {
+              label: "Cacher",
+              onClick: () => console.log("Hiden"),
+            },
+          });
         return;
       }
       console.log("Données envoyées :", {callCenterName, callCenterEmail, callCenterPhone, callCenterAddress});

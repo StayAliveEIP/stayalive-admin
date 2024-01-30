@@ -1,6 +1,18 @@
+import { toast } from "sonner"
+toast(".", {
+  action: {
+    label: "Cacher",
+    onClick: () => console.log("Hiden"),
+  },
+});
 const apiDashboardGetRescuer = async (rescuerID: string) => {
     if (!rescuerID.trim()) {
-        alert("L'ID du sauveteur est requis.");
+        toast("L'ID du sauveteur est requis.", {
+            action: {
+              label: "Cacher",
+              onClick: () => console.log("Hiden"),
+            },
+          });
         return;
       }
       console.log("Données envoyées :", {rescuerID});

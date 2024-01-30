@@ -1,6 +1,13 @@
+import { toast } from "sonner"
+
 const apiAccountDeleteID = async (accountID: string) => {
     if (!accountID.trim()) {
-        alert("L'ID du compte admin est requis.");
+        toast("L'ID du compte admin est requis.", {
+            action: {
+              label: "Cacher",
+              onClick: () => console.log("Hiden"),
+            },
+          });
         return;
       }
     console.log("Données envoyées :", {accountID});

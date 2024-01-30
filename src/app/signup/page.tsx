@@ -77,9 +77,7 @@ return (
     />
     </CardContent>
     <CardFooter className="flex justify-between">
-      <Link href="/login">
-        <Button onClick={() => apiSignup( firstname, lastname, email )}>Créer un compte</Button>
-      </Link>
+      <Button onClick={() => apiSignup( firstname, lastname, email )}>Créer un compte</Button>
     </CardFooter>
   </Card>
   </div>
