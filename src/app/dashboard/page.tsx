@@ -1,5 +1,3 @@
-"use client"
-
 import {
     Card,
     CardContent,
@@ -10,81 +8,60 @@ import {
   } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import apiDashboardGetInfo from '@/actions/apiDashboardGetInfo'
-import apiDashboardDeleteCC from '@/actions/apiDashboardDeleteCC'
+import { CallCenter, columns } from "./columns";
+import { DataTable } from "./data-table";
+// import apiDashboardGetInfo from '@/actions/apiDashboardGetInfo';
+// import apiDashboardDeleteCC from '@/actions/apiDashboardDeleteCC'; / apiDashboardDeleteCC("60e6f7b3f5b6f0b3f4f9f6e0")
 
-const DashboardAdmin: React.FC = () => {
-    const [callCenterID, setCallCenterID] = useState('');
-    const [callCenterName, setCallCenterName] = useState('');
-    const [callCenterAddressStreet, setCallCenterAddressStreet] = useState('');
-    const [callCenterAddressCity, setCallCenterAddressCity] = useState('');
-    const [callCenterAddressZip, setCallCenterAddressSip] = useState('');
-    const [callCenterPhone, setCallCenterPhone] = useState('');
-    const [callCenterEmail, setCallCenterEmail] = useState('');
-    const [callCenterEmailVerified, setCallCenterEmailVerified] = useState('');
-    const [callCenterLastCode, setCallCenterLastCode] = useState('');
-    const [callCenterAmbulance, setCallCenterAmbulance] = useState('');
-    const [callCenterRescuer, setCallCenterRescuer] = useState('');
+async function getData(): Promise<CallCenter[]> {
+  // Fetch data from API here.
+  return [
+    {
+      id: "60e6f7b3f5b6f0b3f4f9f6e0",
+      name: "Centre d'appel Stanislas",
+      phone: "02 13 64 78 95",
+      email: {
+        email: "call@center.net",
+        verified: true,
+        lastCodeSent: "2024-01-30T05:17:47.608Z"
+      },
+      address: {
+        street: "22 Rue Notre Dame des Champs",
+        city: "Paris",
+        zip: "75006"
+      }
+    },
+  ]
+}
 
-    const [rescueRescuerName, setRescueRescuerName] = useState('');
-    const [rescuePlace, setRescuePlace] = useState('');
-    const [rescueSuccess, setRescueSuccess] = useState('');
-    const [rescueList, setRescueList] = useState('');
-
-    const [rescuerID, setRescuerID] = useState('');
-    const [rescuerList, setRescuerList] = useState('');
-    const [rescuerStatus, setRescuerStatus] = useState('');
-
-    const [map, setMap] = useState('');
+export default async function  DashboardAdmin() {
+  const data = await getData()
 
     return (
-      <Card className="w-[666px]">
-        <CardHeader>
-          <CardTitle>Info les Centre d&#39;appel</CardTitle>
-        </CardHeader>
-        <CardContent>Nom: {callCenterName}</CardContent>
-        <CardHeader>
-          <CardTitle>Adresse:</CardTitle>
-        </CardHeader>
-        <CardContent>Rue: {callCenterAddressStreet}</CardContent>
-        <CardContent>Ville: {callCenterAddressCity}</CardContent>
-        <CardContent>Zip code: {callCenterAddressZip}</CardContent>
-        <CardContent>Email: {callCenterEmail}</CardContent>
-        <CardContent>Status de l&#39;email: {callCenterEmail ? 'Valide' : 'En attente de validation'}</CardContent>
-        <CardContent>Téléphone: {callCenterPhone}</CardContent>
-        <CardContent>Ambulances disponibles: {callCenterAmbulance}</CardContent>
-        <CardContent>Nombre de sauveteurs: {callCenterRescuer}</CardContent>
-        <Link href="/dashboard/rescuers">
-          <Button variant="link">Voir la liste de tout les sauveteurs</Button>
-        </Link>
-        <Card className="w-[666px]">
+      <div className="container mx-auto">
+        <Card className="w-[1234px] m-auto mt-20">
           <CardHeader>
-            <CardTitle>Dernière intervention</CardTitle>
+            <CardTitle className="m-auto">Mes centres d&#39;appel</CardTitle>
           </CardHeader>
-          <CardContent>Sauveteur: {rescueRescuerName}</CardContent>
-          <CardContent>Lieu: {rescuePlace}</CardContent>
-          <CardContent>Réussi: {rescueSuccess ? 'Non' : 'Oui'}</CardContent>
-          <CardFooter>
-            <Link href="/dashboard/rescues">
-              <Button variant="link">Voir toutes les interventions</Button>
+          <DataTable columns={columns} data={data} />
+          <CardFooter className="flex justify-between mx-auto mt-5">
+            <Link href="/dashboard/create">
+              <Button>Créer un nouveau Centre d&#39;appel</Button>
+            </Link>
+            <Link href="/dashboard/settings">
+              <Button variant="secondary">Paramètre administrateur</Button>
             </Link>
           </CardFooter>
-          <CardFooter>
-          <Button variant="link" onClick={() => apiDashboardGetInfo(callCenterID)}>Mettre à jour les infos du centre d&#39;appel</Button>
-        </CardFooter>
         </Card>
-        <Link href="/dashboard/create">
-          <Button>Creer un nouveau Centre d&#39;appel</Button>
-        </Link>
-        <Button variant="destructive" onClick={() => apiDashboardDeleteCC(callCenterID)}>Supprimer un Centre d&#39;appel</Button>
-        <Button variant="link">Voir tout les Centre d&#39;appel</Button>
-        <Link href="/dashboard/settings">
-          <Button variant="secondary">Paramètre administrateur</Button>
-        </Link>
-      </Card>
-      
+      </div>
     );
 };
 
-export default DashboardAdmin;
+
+
+/*
+    AFFICHAGE DE LA DERNIERE INTERVENTION
+        <CardContent>Sauveteur: {rescueRescuerName}</CardContent>
+        <CardContent>Lieu: {rescuePlace}</CardContent>
+        <CardContent>Réussi: {rescueSuccess ? 'Non' : 'Oui'}</CardContent>
+*/

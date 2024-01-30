@@ -14,6 +14,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { cookies } from 'next/headers'
 import apiDashboardCreateCC from "@/actions/apiDashboardCreateCC";
+import {Label} from "@/components/ui/label";
 
 const CreateCallCenter: React.FC = () => {
   const [callCenterName, setCallCenterName] = useState('');
@@ -26,43 +27,49 @@ const CreateCallCenter: React.FC = () => {
   const callCenterAddress = {callCenterStreet, callCenterCity, callCenterZip};
 
 return (
-  <Card className="flex-col items-center justify-between w-[333px]">
+  <Card className="flex-col items-center justify-between w-[333px] m-auto mt-20">
     <CardHeader>
       <CardTitle>Création de compte Administrateur</CardTitle>
     </CardHeader>
     <CardContent>
+    <Label htmlFor="name">Nom</Label>
     <Input
-      type="Nom"
+      type="name"
       placeholder="Entrez le nom du centre d'appel"
       value={callCenterName}
       onChange={(e) => setCallCenterName(e.target.value)}
     />
+    <Label htmlFor="email">Email</Label>
     <Input
-      type="Email"
+      type="email"
       placeholder="Entrez l'email du centre d'appel"
       value={callCenterEmail}
       onChange={(e) => setCallCenterEmail(e.target.value)}
     />
+    <Label htmlFor="phone">Numéro de téléphone</Label>
     <Input
-      type="Telephone"
-      placeholder="Entrez le numero de telephone"
+      type="phone"
+      placeholder="Entrez le numéro de téléphone"
       value={callCenterPhone}
       onChange={(e) => setCallCenterPhone(e.target.value)}
     />
+    <Label htmlFor="street">Rue</Label>
     <Input
-      type="Rue"
+      type="street"
       placeholder="Entrez l'adresse du centre d'appel"
       value={callCenterStreet}
       onChange={(e) => setCallCenterStreet(e.target.value)}
     />
+    <Label htmlFor="city">Ville</Label>
     <Input
-      type="Ville"
+      type="city"
       placeholder="Entrez la ville du centre d'appel"
       value={callCenterCity}
       onChange={(e) => setCallCenterCity(e.target.value)}
     />
+    <Label htmlFor="zip"> Zip code</Label>
     <Input
-      type="Zip"
+      type="zip"
       placeholder="Entrez le code du centre d'appel"
       value={callCenterZip}
       onChange={(e) => setCallCenterZip(e.target.value)}
