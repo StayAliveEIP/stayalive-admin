@@ -1,8 +1,15 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { toast } from "sonner"
+
 const apiLogin = async (email: string, password: string) => {
 
   if (!email.trim() || !password.trim()) {
-    alert("Veuillez remplir tous les champs.");
+    toast("Veuillez remplir tout les champs.", {
+      action: {
+        label: "Cacher",
+        onClick: () => console.log("Hiden"),
+      },
+    });
     return;
   }
   console.log("Données envoyées :", {email, password});

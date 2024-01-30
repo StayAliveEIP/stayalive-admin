@@ -1,6 +1,13 @@
+import { toast } from "sonner"
+
 const apiSignup = async (firstname: string, lastname: string, email: string) => {
     if (!firstname.trim() || !lastname.trim() || !email.trim()) {
-        alert("Veuillez remplir tous les champs.");
+        toast("Veuillez remplir tous les champs.", {
+            action: {
+              label: "Cacher",
+              onClick: () => console.log("Hiden"),
+            },
+          });
         return 0;
     }
 
@@ -20,7 +27,13 @@ const apiSignup = async (firstname: string, lastname: string, email: string) => 
         
         const data = await response.json();
 
-        alert(data.message);
+        toast(data.message, {
+            action: {
+              label: "Cacher",
+              onClick: () => console.log("Hiden"),
+            },
+          });
+          
     } catch (error) {
     console.error("Erreur lors de l'envoi des données", error);
   }

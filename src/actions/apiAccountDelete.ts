@@ -1,6 +1,12 @@
+import { toast } from "sonner"
 const apiAccountDelete = async (accountPassword: string) => {
     if (!accountPassword.trim()) {
-        alert("Le mot de passe du compte admin est requis.");
+        toast("Le mot de passe du compte admin est requis.", {
+            action: {
+              label: "Cacher",
+              onClick: () => console.log("Hiden"),
+            },
+          });
         return;
       }
     console.log("Données envoyées :", {accountPassword});

@@ -1,6 +1,13 @@
+import { toast } from "sonner"
+
 const apiDashboardGetInfo = async (callCenterID: string) => {
     if (!callCenterID.trim()) {
-        alert("L'ID du call center est requis.");
+        toast("L'ID du call center est requis.", {
+            action: {
+              label: "Cacher",
+              onClick: () => console.log("Hiden"),
+            },
+          });
         return;
       }
       console.log("Données envoyées :", {callCenterID});

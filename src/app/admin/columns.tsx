@@ -13,23 +13,15 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-export type CallCenter = {
+export type Admin = {
     id: string,
-    name: string,
-    phone: string,
-    email: {
-      email: string,
-      verified: true | false,
-      lastCodeSent: string
-    },
-    address: {
-      street: string,
-      city: string,
-      zip: string
-    }
+    firstname: string,
+    lastname: string,
+    email: string,
+    emailVerified: true | false,
 }
 
-export const columns: ColumnDef<CallCenter>[] = [
+export const columns: ColumnDef<Admin>[] = [
 
     {
         id: "actions",
@@ -46,15 +38,11 @@ export const columns: ColumnDef<CallCenter>[] = [
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 <DropdownMenuLabel>Action</DropdownMenuLabel>
-                <Link href="/dashboard/callcenter">
-                  <DropdownMenuItem>Voir les infos du centre d&#39;appel</DropdownMenuItem>
+                <Link href="/admin/info">
+                  <DropdownMenuItem>Voir les infos de l&#39;administrateur</DropdownMenuItem>
                 </Link>
-                <Link href="/dashboard/rescuers">
-                    <DropdownMenuItem>Voir la liste de tout les sauveteurs</DropdownMenuItem>
-                </Link>
-                <DropdownMenuItem>Mettre à jour les infos du centre d&#39;appel</DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Supprimer ce centre d&#39;appel</DropdownMenuItem>
+                <DropdownMenuItem>Supprimer cet administrateur</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           )
@@ -62,27 +50,19 @@ export const columns: ColumnDef<CallCenter>[] = [
       },
 
   {
-    accessorKey: "name",
+    accessorKey: "firstname",
     header: "Nom",
   },
   {
-    accessorKey: "phone",
-    header: "Téléphone",
+    accessorKey: "lastname",
+    header: "lastname",
   },
   {
-    accessorKey: "email.email",
+    accessorKey: "email",
     header: "Email",
   },
   {
-    accessorKey: "address.street",
-    header: "Rue",
-  },
-  {
-    accessorKey: "address.city",
-    header: "Ville",
-  },
-  {
-    accessorKey: "address.zip",
-    header: "Code zip",
+    accessorKey: "emailVerified",
+    header: "Status de l'email",
   },
 ]

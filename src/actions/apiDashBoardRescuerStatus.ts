@@ -1,6 +1,13 @@
+import { toast } from "sonner"
+
 const apiDashBoardRescuerStatus = async (rescuerID: string, rescuerStatus: string) => {
     if (!rescuerID.trim()) {
-        alert("L'ID du sauveteur est requis.");
+        toast("L'ID du sauveteur est requis.", {
+            action: {
+              label: "Cacher",
+              onClick: () => console.log("Hiden"),
+            },
+          });
         return;
       }
       console.log("Données envoyées :", {rescuerID});
