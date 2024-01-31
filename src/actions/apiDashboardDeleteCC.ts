@@ -1,6 +1,7 @@
 import { toast } from "sonner"
 
 const apiDashboardDeleteCC = async (callCenterID: string) => {
+    const bearerToken = localStorage.getItem('bearerToken');
     if (!callCenterID.trim()) {
         toast("L'ID du call center est requis.", {
             action: {
@@ -15,8 +16,8 @@ const apiDashboardDeleteCC = async (callCenterID: string) => {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/call-center/delete`, {
             method: 'DELETE',
             headers: {
-                'Content-Type': 'application/json'
-                // Token
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${bearerToken}`
             },
             body: JSON.stringify({
                 id: callCenterID

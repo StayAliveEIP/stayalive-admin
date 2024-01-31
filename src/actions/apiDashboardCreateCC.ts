@@ -1,6 +1,7 @@
 import { toast } from "sonner"
 
 const apiDashboardCreateCC = async (callCenterName: string, callCenterEmail: string, callCenterPhone: string, callCenterAddress: { callCenterStreet: string, callCenterCity:string, callCenterZip:string }) => {
+    const bearerToken = localStorage.getItem('bearerToken');
     if (!callCenterName.trim() || !callCenterEmail.trim() || !callCenterPhone.trim()) {
         toast("Veuillez remplir tous les champs.", {
             action: {
@@ -15,19 +16,23 @@ const apiDashboardCreateCC = async (callCenterName: string, callCenterEmail: str
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/call-center/new`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
-                // Token
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${bearerToken}`
             },
             body: JSON.stringify({
-                callCenterName,
-                callCenterEmail,
-                callCenterPhone,
-                callCenterAddress
+                name: callCenterName,
+                email: callCenterEmail,
+                phone: callCenterPhone,
+                address: {
+                    street: callCenterAddress.callCenterStreet,
+                    city: callCenterAddress.callCenterCity,
+                    zip: callCenterAddress.callCenterZip,
+                }
             })
         });
 
         if (!response.ok) {
-            throw new Error(`Erreur HTTP: ${response.status}`);
+            //throw new Error(`Erreur HTTP: ${response.status}`);
         }
         const result = await response.json();
         console.log("Réponse de l'API :", result);

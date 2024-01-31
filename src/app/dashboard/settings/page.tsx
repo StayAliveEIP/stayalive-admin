@@ -21,15 +21,29 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from "@/components/ui/menubar"
+import apiAdminInfo from '@/actions/apiAdminInfo'
 
 const SettingsAdmin: React.FC = () => {
-    const [accountID, setAccountID] = useState('');
     const [accountFirstname, setAccountFirstname] = useState('');
     const [accountLastname, setAccountLastname] = useState('');
     const [accountEmail, setAccountEmail] = useState('');
     const [accountEmailStatus, setAccountEmailStatus] = useState('');
     const [accountPassword, setAccountPassword] = useState('');
-    
+
+    function getAdminInfo() {
+      apiAdminInfo().then(r=> {
+        if (r != undefined) {
+          setAccountFirstname(r.firstname);
+          setAccountLastname(r.lastname);
+          setAccountEmail(r.email);
+          setAccountEmailStatus(r.emailVerified)
+        }
+      }).catch(e=>{});
+    }
+
+    useEffect(() => {
+      getAdminInfo();
+    }, [])
 
     return (
       <div>
@@ -53,10 +67,15 @@ const SettingsAdmin: React.FC = () => {
         <CardHeader>
           <CardTitle>Info du compte</CardTitle>
         </CardHeader>
-        <CardContent>Prenom: John {accountFirstname}</CardContent>
-        <CardContent>Nom: Doe {accountLastname}</CardContent>
-        <CardContent>Email: jonh@doe.net {accountEmail}</CardContent>
-        <CardContent>Status de votre email: {accountEmailStatus ? 'Valide' : 'En attente de validation'}</CardContent>
+        <CardContent>
+          <Label htmlFor="password">Prenom: </Label>
+          <Input value={accountFirstname} onChange={(e) => setAccountFirstname(e.target.value)}></Input>
+          <Label htmlFor="password">Nom: </Label>
+          <Input value={accountLastname} onChange={(e) => setAccountLastname(e.target.value)}></Input>
+          <Label htmlFor="password">Email: </Label>
+          <Input value={accountEmail} onChange={(e) => setAccountEmail(e.target.value)}></Input>
+        </CardContent>
+        <CardContent>Status de votre email: {accountEmailStatus ? "Verifie" : "En attente"}</CardContent>
         <CardFooter className="flex justify-between">
           <Link href="/login">
             <Button variant="destructive" onClick={() => apiDeconnexion}>Se deconnecter</Button>

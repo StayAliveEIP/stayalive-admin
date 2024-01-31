@@ -1,6 +1,7 @@
 import { toast } from "sonner"
 
 const apiDashboardGetInfo = async (callCenterID: string) => {
+    const bearerToken = localStorage.getItem('bearerToken');
     if (!callCenterID.trim()) {
         toast("L'ID du call center est requis.", {
             action: {
@@ -15,8 +16,8 @@ const apiDashboardGetInfo = async (callCenterID: string) => {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/call-center/info/${callCenterID}`, {
             method: 'GET',
             headers: {
-                'Content-Type': 'application/json'
-                // Token
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${bearerToken}`
             },
         });
 
