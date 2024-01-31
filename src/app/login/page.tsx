@@ -21,10 +21,13 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from "@/components/ui/menubar"
+import {useRouter} from "next/navigation";
 
 const LoginAdminAccountPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const router = useRouter()
 
   return (
     <div>
@@ -69,7 +72,12 @@ const LoginAdminAccountPage: React.FC = () => {
           />
         </CardContent>
         <CardFooter className="flex justify-between">
-          <Button variant="default" onClick={() => apiLogin(email, password)}>Se connecter</Button>
+          <Button variant="default" onClick={async () =>
+          {const data = await apiLogin(email, password)
+            if (data) {
+              router.push("/dashboard")
+            }
+          }}>Se connecter</Button>
         </CardFooter>
         <CardFooter>
           <div className="items-top flex space-x-2">

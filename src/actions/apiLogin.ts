@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { toast } from "sonner"
+import {router} from "next/client";
 
 const apiLogin = async (email: string, password: string) => {
 
@@ -55,6 +56,8 @@ const apiLogin = async (email: string, password: string) => {
       const expires = "expires=" + d.toUTCString();
       document.cookie = "token=" + data.token + ";" + expires + ";/path=/";
     }
+
+    return data;
 
   } catch (error) {
     console.error("Erreur lors de la connexion à l'API :", error);

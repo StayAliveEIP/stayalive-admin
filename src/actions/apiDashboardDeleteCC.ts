@@ -13,15 +13,12 @@ const apiDashboardDeleteCC = async (callCenterID: string) => {
       }
       console.log("Données envoyées :", {callCenterID});
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/call-center/delete`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/call-center/delete?id=${callCenterID}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${bearerToken}`
             },
-            body: JSON.stringify({
-                id: callCenterID
-            })
         });
 
         if (!response.ok) {
