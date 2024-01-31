@@ -1,3 +1,5 @@
+"use client"
+
 import {
     Card,
     CardContent,
@@ -15,31 +17,21 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from "@/components/ui/menubar"
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
+import apiGetAdminData from '@/actions/apiGetAdminData'
 
-async function getData(): Promise<Admin[]> {
-  // Fetch data from API here.
 
-  // Fake for Demo
-  return [
-    {
-      id: "60e6f7b3f5b6f0b3f4f9f6e0",
-      firstname: "John",
-      lastname: "Doe",
-      email: "john@doe.net",
-      emailVerified: false,
-    },
-    {
-      id: "flx999ZkRjrjX000Raf2",
-      firstname: "Felix",
-      lastname: "Buisson",
-      email: "felix.buisson@epitech.eu",
-      emailVerified: true,
-    },
-  ]
-}
-
-export default async function  DashboardAdmin() {
-  const data = await getData()
+export default function  DashboardAdmin() {
+  const [accounts, setAccounts] = useState<Admin[]>([]);
+  useEffect(() => {
+    apiGetAdminData().then(r => {
+      console.log(r);
+      if (r != undefined) {
+        setAccounts(r)
+      }
+    })
+  }, [])
 
     return (
       <div>
@@ -64,7 +56,7 @@ export default async function  DashboardAdmin() {
           <CardHeader>
             <CardTitle className="m-auto">Liste des administrateurs</CardTitle>
           </CardHeader>
-          <DataTable columns={columns} data={data} />
+          <DataTable columns={columns} data={accounts} />
           <CardFooter className="mx-auto mt-5">
             <Link href="/signup">
               <Button>Créer un nouveau compte administrateur</Button>

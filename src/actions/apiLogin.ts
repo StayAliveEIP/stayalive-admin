@@ -12,7 +12,7 @@ const apiLogin = async (email: string, password: string) => {
     });
     return;
   }
-  console.log("Données envoyées :", {email, password});
+  //console.log("Données envoyées :", {email, password});
 
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/auth/login`, {
@@ -27,11 +27,27 @@ const apiLogin = async (email: string, password: string) => {
     });
 
     if (!response.ok) {
-      throw new Error(`Erreur HTTP: ${response.status}`);
+      if (response.status == 404) {
+        toast("L'administrateur n'a pas pu être trouvé.", {
+          action: {
+          label: "Cacher",
+          onClick: () => console.log("Hiden"),
+          },
+        });
+      } else {
+        toast("Une erreur inattendue est survenue.", {
+          action: {
+          label: "Cacher",
+          onClick: () => console.log("Hiden"),
+          },
+        });
+      }
+      //throw new Error(`Erreur HTTP: ${response.status}`);
     }
-    console.log(response);
+
     const data = await response.json();
     console.log("Réponse reçue :", data);
+    localStorage.setItem('bearerToken', data.token);
 
     if (data.token) {
       const d = new Date();

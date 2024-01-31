@@ -1,6 +1,7 @@
 import { toast } from "sonner"
 
 const apiAccountDeleteID = async (accountID: string) => {
+    const bearerToken = localStorage.getItem('bearerToken');
     if (!accountID.trim()) {
         toast("L'ID du compte admin est requis.", {
             action: {
@@ -15,8 +16,8 @@ const apiAccountDeleteID = async (accountID: string) => {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/account/delete`, {
             method: 'DELETE',
             headers: {
-                'Content-Type': 'application/json'
-                // Token
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${bearerToken}`
             },
             body: JSON.stringify({ id: accountID })
         });

@@ -16,9 +16,21 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from "@/components/ui/menubar"
+import apiDashboardGetInfo from '@/actions/apiDashboardGetInfo'
 
 const RescuerList: React.FC = () => {
-    //Fake Data
+  //const [callCenterID, setCallCenterID] = useState('');
+  const [callCenterName, setCallCenterName] = useState('');
+  const [callCenterPhone, setCallCenterPhone] = useState('');
+  const [callCenterEmail, setCallCenterEmail] = useState('');
+  const [callCenterEmailVerif, setCallCenterEmailVerif] = useState('');
+  const [callCenterEmailCode, setCallCenterEmailCode] = useState('');
+  const [callCenterStreet, setCallCenterStreet] = useState('');
+  const [callCenterCity, setCallCenterCity] = useState('');
+  const [callCenterZip, setCallCenterZip] = useState('');
+
+  const callCenterID = "e65f1aw6ef1z5ef1z63ef1eafz"
+
     return (
       <div>
       <Menubar className="flex justify-between w-[1369px] m-auto mt-2">
@@ -41,13 +53,14 @@ const RescuerList: React.FC = () => {
         <CardHeader>
           <CardTitle>Infos du centre d&#39;appel</CardTitle>
         </CardHeader>
-        <CardContent>Hôpital Stanislas</CardContent>
-        <CardContent>02 13 64 78 95</CardContent>
-        <CardContent>call@center.net</CardContent>
-        <CardContent>Etat de l&#39;email : En attente</CardContent>
-        <CardContent>22 Rue Notre Dame des Champs</CardContent>
-        <CardContent>Paris</CardContent>
-        <CardContent>75006</CardContent>
+        <CardContent>{callCenterName}</CardContent>
+        <CardContent>{callCenterEmail}</CardContent>
+        <CardContent>{callCenterPhone}</CardContent>
+        <CardContent>Etat de l&#39;email : {callCenterEmailVerif}</CardContent>
+        <CardContent>{callCenterStreet}</CardContent>
+        <CardContent>{callCenterCity}</CardContent>
+        <CardContent>{callCenterZip}</CardContent>
+        <Button variant="secondary" onClick={() => apiDashboardGetInfo(callCenterID)}>Mettre à jour les info du centre d&#39;appel</Button>
         <Link href="/dashboard">
           <Button variant="link">Retour à votre dashboard</Button>
         </Link>

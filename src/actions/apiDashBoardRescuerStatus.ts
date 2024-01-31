@@ -1,6 +1,7 @@
 import { toast } from "sonner"
 
 const apiDashBoardRescuerStatus = async (rescuerID: string, rescuerStatus: string) => {
+    const bearerToken = localStorage.getItem('bearerToken');
     if (!rescuerID.trim()) {
         toast("L'ID du sauveteur est requis.", {
             action: {
@@ -15,8 +16,8 @@ const apiDashBoardRescuerStatus = async (rescuerID: string, rescuerStatus: strin
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/rescuer/document/status`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
-                // Token
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${bearerToken}`
             },
             body: JSON.stringify({
                 rescuerID: rescuerID,

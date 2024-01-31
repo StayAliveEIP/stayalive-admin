@@ -1,11 +1,6 @@
 import { toast } from "sonner"
-toast(".", {
-  action: {
-    label: "Cacher",
-    onClick: () => console.log("Hiden"),
-  },
-});
 const apiDashboardGetRescuer = async (rescuerID: string) => {
+  const bearerToken = localStorage.getItem('bearerToken');
     if (!rescuerID.trim()) {
         toast("L'ID du sauveteur est requis.", {
             action: {
@@ -20,8 +15,8 @@ const apiDashboardGetRescuer = async (rescuerID: string) => {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/rescuer/document/all`, {
             method: 'GET',
             headers: {
-                'Content-Type': 'application/json'
-                // Token
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${bearerToken}`
             },
         });
 

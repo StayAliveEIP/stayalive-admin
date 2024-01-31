@@ -12,6 +12,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import apiDashboardDeleteCC from '@/actions/apiDashboardDeleteCC'
+// l.59 onClick={() => apiDashboardDeleteCC()}
 
 export type CallCenter = {
     id: string,

@@ -1,6 +1,7 @@
 import { toast } from "sonner"
 
 const apiSignup = async (firstname: string, lastname: string, email: string) => {
+  const bearerToken = localStorage.getItem('bearerToken');
     if (!firstname.trim() || !lastname.trim() || !email.trim()) {
         toast("Veuillez remplir tous les champs.", {
             action: {
@@ -17,6 +18,7 @@ const apiSignup = async (firstname: string, lastname: string, email: string) => 
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': `Bearer ${bearerToken}`
             },
             body: JSON.stringify({
                 firstname: firstname,
