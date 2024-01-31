@@ -13,6 +13,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import apiDashboardDeleteCC from '@/actions/apiDashboardDeleteCC'
+import {deleteCallCenter} from "@/actions/serverAction/action";
+import {toast} from "sonner";
 // l.59 onClick={() => apiDashboardDeleteCC()}
 
 export type CallCenter = {
@@ -37,7 +39,7 @@ export const columns: ColumnDef<CallCenter>[] = [
         id: "actions",
         cell: ({ row }) => {
           const payment = row.original
-     
+
           return (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -56,7 +58,16 @@ export const columns: ColumnDef<CallCenter>[] = [
                 </Link>
                 <DropdownMenuItem>Mettre à jour les infos du centre d&#39;appel</DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Supprimer ce centre d&#39;appel</DropdownMenuItem>
+                <DropdownMenuItem onClick={
+                    async () => {
+                        const data = await deleteCallCenter(payment.id, localStorage.getItem("bearerToken") as string)
+                        if (data && data.error) {
+                            toast.error(data.message)
+                        } else if (data && !data.error) {
+                            toast.success(data.message)
+                        }
+                    }
+                }>Supprimer ce centre d&#39;appel</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           )
