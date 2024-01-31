@@ -1,7 +1,6 @@
 import { toast } from "sonner"
 
-const apiDashboardGetInfo = async (callCenterID: string) => {
-    const bearerToken = localStorage.getItem('bearerToken');
+const apiDashboardGetInfo = async (callCenterID: string, token: string) => {
     if (!callCenterID.trim()) {
         toast("L'ID du call center est requis.", {
             action: {
@@ -13,11 +12,11 @@ const apiDashboardGetInfo = async (callCenterID: string) => {
       }
       console.log("Données envoyées :", {callCenterID});
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/call-center/info/${callCenterID}`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/call-center/info?id=${callCenterID}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${bearerToken}`
+                'Authorization': `Bearer ${token}`
             },
         });
 
@@ -27,7 +26,7 @@ const apiDashboardGetInfo = async (callCenterID: string) => {
         console.log(response);
         const data = await response.json();
         console.log("Information du call center:", data);
-        // Traitement des données reçues pour les afficher dans l'interface
+       return data;
     } catch (error) {
         console.error("Erreur lors de la récupération des informations:", error);
     }

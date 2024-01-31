@@ -60,7 +60,6 @@ const RescuerList: React.FC = () => {
         <CardContent>{callCenterStreet}</CardContent>
         <CardContent>{callCenterCity}</CardContent>
         <CardContent>{callCenterZip}</CardContent>
-        <Button variant="secondary" onClick={() => apiDashboardGetInfo(callCenterID)}>Mettre à jour les info du centre d&#39;appel</Button>
         <Link href="/dashboard">
           <Button variant="link">Retour à votre dashboard</Button>
         </Link>
