@@ -1,12 +1,11 @@
 "use client"
-import {Menubar, MenubarMenu, MenubarTrigger} from "@/components/ui/menubar";
+
 import Link from "next/link";
-import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
+import {Card, CardHeader, CardTitle} from "@/components/ui/card";
 import {Button} from "@/components/ui/button";
 import apiDashboardGetInfo from "@/actions/apiDashboardGetInfo";
 import {Input} from "@/components/ui/input";
 import {Label} from "@/components/ui/label";
-import {EditForm} from "@/app/dashboard/callcenter/edit/[id]/edit-form";
 import {useEffect, useState} from "react";
 import {apiDashboardModifyCC} from "@/actions/apiDashboardModifyCC";
 import {toast} from "sonner";
@@ -78,22 +77,6 @@ export default  function Page({params}: {
 
     return (
         <div>
-            <Menubar className="flex justify-between w-[1369px] m-auto mt-2">
-                <MenubarMenu>
-                    <Link href="/signup">
-                        <MenubarTrigger>Créer un compte Admin</MenubarTrigger>
-                    </Link>
-                    <Link href="/login">
-                        <MenubarTrigger>Se connecter à un compte Admin</MenubarTrigger>
-                    </Link>
-                    <Link href="/admin">
-                        <MenubarTrigger>Liste des Admins</MenubarTrigger>
-                    </Link>
-                    <Link href="/dashboard">
-                        <MenubarTrigger>Dashboard Administrateur</MenubarTrigger>
-                    </Link>
-                </MenubarMenu>
-            </Menubar>
             <Card className="w-[555px] m-auto mt-20 p-1">
                 <CardHeader>
                     <CardTitle>Infos du centre d&#39;appel</CardTitle>

@@ -3,7 +3,6 @@
 import {
     Card,
     CardContent,
-    CardDescription,
     CardFooter,
     CardHeader,
     CardTitle,
@@ -16,11 +15,6 @@ import { Input } from "@/components/ui/input";
 import apiAccountDelete from '@/actions/apiAccountDelete'
 import apiDeconnexion from '@/actions/apiDeconnexion'
 import {Label} from "@/components/ui/label";
-import {
-  Menubar,
-  MenubarMenu,
-  MenubarTrigger,
-} from "@/components/ui/menubar"
 import apiAdminInfo from '@/actions/apiAdminInfo'
 
 const SettingsAdmin: React.FC = () => {
@@ -47,22 +41,6 @@ const SettingsAdmin: React.FC = () => {
 
     return (
       <div>
-      <Menubar className="flex justify-between w-[1369px] m-auto mt-2">
-        <MenubarMenu>
-          <Link href="/signup">
-            <MenubarTrigger>Créer un compte Admin</MenubarTrigger>
-          </Link>
-          <Link href="/login">
-            <MenubarTrigger>Se connecter à un compte Admin</MenubarTrigger>
-          </Link>
-          <Link href="/admin">
-            <MenubarTrigger>Liste des Admins</MenubarTrigger>
-          </Link>
-          <Link href="/dashboard">
-            <MenubarTrigger>Dashboard Administrateur</MenubarTrigger>
-          </Link>
-        </MenubarMenu>
-      </Menubar>
       <Card className="w-[555px] m-auto mt-20">
         <CardHeader>
           <CardTitle>Info du compte</CardTitle>

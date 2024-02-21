@@ -2,8 +2,6 @@
 
 import {
     Card,
-    CardContent,
-    CardDescription,
     CardFooter,
     CardHeader,
     CardTitle,
@@ -18,7 +16,6 @@ import {
   MenubarTrigger,
 } from "@/components/ui/menubar"
 import { useEffect, useState } from "react";
-import { useTheme } from "next-themes";
 import apiGetAdminData from '@/actions/apiGetAdminData'
 
 
@@ -39,12 +36,6 @@ export default function  DashboardAdmin() {
         <MenubarMenu>
           <Link href="/signup">
             <MenubarTrigger>Créer un compte Admin</MenubarTrigger>
-          </Link>
-          <Link href="/login">
-            <MenubarTrigger>Se connecter à un compte Admin</MenubarTrigger>
-          </Link>
-          <Link href="/admin">
-            <MenubarTrigger>Liste des Admins</MenubarTrigger>
           </Link>
           <Link href="/dashboard">
             <MenubarTrigger>Dashboard Administrateur</MenubarTrigger>
