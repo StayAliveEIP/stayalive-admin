@@ -3,7 +3,6 @@
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -12,14 +11,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Link from 'next/link';
 import React, { useState } from 'react';
-import { cookies } from 'next/headers'
 import apiDashboardCreateCC from "@/actions/apiDashboardCreateCC";
 import {Label} from "@/components/ui/label";
-import {
-  Menubar,
-  MenubarMenu,
-  MenubarTrigger,
-} from "@/components/ui/menubar"
 
 const CreateCallCenter: React.FC = () => {
   const [callCenterName, setCallCenterName] = useState('');
@@ -33,22 +26,6 @@ const CreateCallCenter: React.FC = () => {
 
 return (
   <div>
-      <Menubar className="flex justify-between w-[1369px] m-auto mt-2">
-        <MenubarMenu>
-          <Link href="/signup">
-            <MenubarTrigger>Créer un compte Admin</MenubarTrigger>
-          </Link>
-          <Link href="/login">
-            <MenubarTrigger>Se connecter à un compte Admin</MenubarTrigger>
-          </Link>
-          <Link href="/admin">
-            <MenubarTrigger>Liste des Admins</MenubarTrigger>
-          </Link>
-          <Link href="/dashboard">
-            <MenubarTrigger>Dashboard Administrateur</MenubarTrigger>
-          </Link>
-        </MenubarMenu>
-      </Menubar>
   <Card className="flex-col items-center justify-between w-[333px] m-auto mt-20">
     <CardHeader>
       <CardTitle>Création de compte Administrateur</CardTitle>

@@ -12,7 +12,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Link from 'next/link';
 import React, { useState } from 'react';
-import { cookies } from 'next/headers'
 import apiSignup from "@/actions/apiSignup";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {Label} from "@/components/ui/label";
@@ -31,12 +30,6 @@ return (
   <div>
       <Menubar className="flex justify-between w-[1369px] m-auto mt-2">
         <MenubarMenu>
-          <Link href="/signup">
-            <MenubarTrigger>Créer un compte Admin</MenubarTrigger>
-          </Link>
-          <Link href="/login">
-            <MenubarTrigger>Se connecter à un compte Admin</MenubarTrigger>
-          </Link>
           <Link href="/admin">
             <MenubarTrigger>Liste des Admins</MenubarTrigger>
           </Link>
