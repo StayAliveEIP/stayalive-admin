@@ -67,7 +67,9 @@ const SettingsAdmin: React.FC = () => {
             value={accountPassword}
             onChange={(e) => setAccountPassword(e.target.value)}
           />
-          <Button variant="destructive" onClick={() => apiAccountDelete(accountPassword)}>Supprimer votre compte</Button>
+          <Link href="/login">
+            <Button variant="destructive" onClick={() => apiAccountDelete(accountPassword)}>Supprimer votre compte</Button>
+          </Link>
         </CardFooter>
         <Link href="/dashboard">
           <Button variant="link">Retour à votre dashboard</Button>
