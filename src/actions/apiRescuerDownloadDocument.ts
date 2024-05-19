@@ -1,6 +1,6 @@
 import { toast } from "sonner"
 
-const apiDashboardDownloadDocument = async (documentId: string) => {
+const apiRescuerDownloadDocument = async (documentId: string) => {
     if (!documentId.trim()) {
         toast("L'ID du sauveteur est requis.", {
             action: {
@@ -19,23 +19,19 @@ const apiDashboardDownloadDocument = async (documentId: string) => {
         if (!response.ok) {
             throw new Error(`Erreur HTTP: ${response.status}`);
         }
-
-        // Gère la réponse en tant que blob
         const blob = await response.blob();
-        // Crée un URL pour le blob
         const downloadUrl = window.URL.createObjectURL(blob);
-        // Crée un lien pour le téléchargement
         const a = document.createElement('a');
         a.href = downloadUrl;
-        a.download = 'document.pdf'; // Nomme le fichier téléchargé
+        a.download = 'rescuer document.pdf';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
-        window.URL.revokeObjectURL(downloadUrl); // Nettoie l'URL temporaire
+        window.URL.revokeObjectURL(downloadUrl);
     } catch (error) {
         console.error("Erreur lors du téléchargement du document:", error);
     }
 
 }
 
-export default apiDashboardDownloadDocument;
+export default apiRescuerDownloadDocument;

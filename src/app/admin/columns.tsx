@@ -39,6 +39,9 @@ export const columns: ColumnDef<Admin>[] = [
               <DropdownMenuContent align="end">
                 <DropdownMenuLabel>Action</DropdownMenuLabel>
                 <DropdownMenuSeparator />
+                <Link href="/admin/edit">
+                <DropdownMenuItem>Mettre à jour les infos du compte administrateur</DropdownMenuItem>
+                </Link>
                 <DropdownMenuItem>Supprimer cet administrateur</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

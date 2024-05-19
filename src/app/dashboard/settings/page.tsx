@@ -16,6 +16,7 @@ import apiAccountDelete from '@/actions/apiAccountDelete'
 import apiDeconnexion from '@/actions/apiDeconnexion'
 import {Label} from "@/components/ui/label";
 import apiAdminInfo from '@/actions/apiAdminInfo'
+import apiGetMagicLink from '@/actions/apiGetMagicLink'
 
 const SettingsAdmin: React.FC = () => {
     const [accountFirstname, setAccountFirstname] = useState('');
@@ -52,6 +53,9 @@ const SettingsAdmin: React.FC = () => {
           <Input value={accountLastname} onChange={(e) => setAccountLastname(e.target.value)}></Input>
           <Label htmlFor="password">Email: </Label>
           <Input value={accountEmail} onChange={(e) => setAccountEmail(e.target.value)}></Input>
+        </CardContent>
+        <CardContent>
+          <Button onClick={() => apiGetMagicLink}>Obtenir mon Magic Link</Button>
         </CardContent>
         <CardContent>Status de votre email: {accountEmailStatus ? "Verifie" : "En attente"}</CardContent>
         <CardFooter className="flex justify-between">

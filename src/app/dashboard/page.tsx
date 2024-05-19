@@ -16,7 +16,8 @@ import {
   MenubarTrigger,
 } from "@/components/ui/menubar"
 // import apiDashboardGetInfo from '@/actions/apiDashboardGetInfo';
-// import apiDashboardDeleteCC from '@/actions/apiDashboardDeleteCC'; / apiDashboardDeleteCC("60e6f7b3f5b6f0b3f4f9f6e0")
+// import apiDashboardDeleteCC from '@/actions/apiDashboardDeleteCC';
+// apiDashboardDeleteCC("60e6f7b3f5b6f0b3f4f9f6e0")
 import apiGetCCData from '@/actions/apiGetCCData'
 import { useEffect, useState } from "react";
 

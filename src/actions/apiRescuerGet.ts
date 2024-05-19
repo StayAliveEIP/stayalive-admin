@@ -1,5 +1,5 @@
 import { toast } from "sonner"
-const apiDashboardGetRescuer = async (rescuerID: string) => {
+const apiRescuerGet = async (rescuerID: string) => {
   const bearerToken = localStorage.getItem('bearerToken');
     if (!rescuerID.trim()) {
         toast("L'ID du sauveteur est requis.", {
@@ -26,10 +26,9 @@ const apiDashboardGetRescuer = async (rescuerID: string) => {
         console.log(response);
         const documents = await response.json();
         console.log("Documents du sauveteur:", documents);
-        // Traitement des données reçues pour les afficher dans l'interface
     } catch (error) {
         console.error("Erreur lors de la récupération des documents du sauveteur:", error);
     }
 }
 
-export default apiDashboardGetRescuer;
+export default apiRescuerGet;

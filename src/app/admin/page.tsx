@@ -34,9 +34,6 @@ export default function  DashboardAdmin() {
       <div>
       <Menubar className="flex justify-between w-[1369px] m-auto mt-2">
         <MenubarMenu>
-          <Link href="/signup">
-            <MenubarTrigger>Créer un compte Admin</MenubarTrigger>
-          </Link>
           <Link href="/dashboard">
             <MenubarTrigger>Dashboard Administrateur</MenubarTrigger>
           </Link>

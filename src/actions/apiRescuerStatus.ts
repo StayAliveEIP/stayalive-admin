@@ -1,6 +1,6 @@
 import { toast } from "sonner"
 
-const apiDashBoardRescuerStatus = async (rescuerID: string, rescuerStatus: string) => {
+const apiRescuerStatus = async (rescuerID: string, rescuerStatus: string) => {
     const bearerToken = localStorage.getItem('bearerToken');
     if (!rescuerID.trim()) {
         toast("L'ID du sauveteur est requis.", {
@@ -37,4 +37,4 @@ const apiDashBoardRescuerStatus = async (rescuerID: string, rescuerStatus: strin
       
 }
 
-export default apiDashBoardRescuerStatus;
+export default apiRescuerStatus;
