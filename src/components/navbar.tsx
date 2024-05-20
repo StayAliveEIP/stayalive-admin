@@ -15,7 +15,7 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator, DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
-import {Settings, Settings2} from "lucide-react";
+import {Settings, Settings2, User} from "lucide-react";
 
 export function Navbar() {
     return (
@@ -44,9 +44,7 @@ export function Navbar() {
                 <DropdownMenu>
                     <DropdownMenuTrigger>
                         <Avatar>
-                            <AvatarImage
-                                src="https://cdn.discordapp.com/attachments/1130401857890697285/1190320898281066607/logo_Background_Removed.png?ex=65c649b9&is=65b3d4b9&hm=cf3172e52f346ff143dc992987a9a9dbe37e7baf1044928746c16f1637aa9ce1&"/>
-                            <AvatarFallback>CN</AvatarFallback>
+                            <AvatarFallback><User/></AvatarFallback>
                         </Avatar>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent>

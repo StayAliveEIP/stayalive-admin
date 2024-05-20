@@ -14,6 +14,7 @@ import { Rescuers, columns } from "./columns";
 import { Menubar, MenubarMenu, MenubarTrigger } from "@/components/ui/menubar"
 import apiRescuerGet from "@/actions/apiRescuerGet";
 import { DataTable } from "../data-table";
+import {Navbar} from "@/components/navbar";
 
 export default function RescuersList() {
   const [rescuers, setRescuers] = useState<Rescuers[]>([]);
@@ -28,13 +29,10 @@ export default function RescuersList() {
 
     return (
       <div>
+        <Navbar/>
         <div className="container mx-auto">
-          <Card className="w-[1234px] m-auto my-20">
-            <CardHeader>
-              <CardTitle className="m-auto">Listes des sauveteurs</CardTitle>
-            </CardHeader>
+              <CardTitle className="m-auto flex justify-center mb-20 mt-7">Listes des sauveteurs</CardTitle>
             <DataTable columns={columns} data={rescuers} />
-          </Card>
         </div>
       </div>
     )
