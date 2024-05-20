@@ -1,6 +1,6 @@
 import { toast } from "sonner"
 
-const apiGetMagicLink = async () => {
+const apiGetMagicLink = async (email: string) => {
   const bearerToken = localStorage.getItem('bearerToken');
 
   try {
@@ -11,7 +11,7 @@ const apiGetMagicLink = async () => {
         'Authorization': `Bearer ${bearerToken}`
       },
       body: JSON.stringify({
-        email: 'felix.buisson@epitech.eu'
+        email: email
       })
     });
 

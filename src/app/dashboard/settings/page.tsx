@@ -55,7 +55,7 @@ const SettingsAdmin: React.FC = () => {
           <Input value={accountEmail} onChange={(e) => setAccountEmail(e.target.value)}></Input>
         </CardContent>
         <CardContent>
-          <Button onClick={() => apiGetMagicLink()}>Obtenir mon Magic Link</Button>
+          <Button onClick={() => apiGetMagicLink(accountEmail)}>Obtenir mon Magic Link</Button>
         </CardContent>
         <CardContent>Status de votre email: {accountEmailStatus ? "Verifie" : "En attente"}</CardContent>
         <CardFooter className="flex justify-between">
