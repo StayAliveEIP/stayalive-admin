@@ -1,6 +1,7 @@
 import { toast } from "sonner"
 
 const apiRescuerDownloadDocument = async (documentId: string) => {
+  const bearerToken = localStorage.getItem('bearerToken');
     if (!documentId.trim()) {
         toast("L'ID du sauveteur est requis.", {
             action: {
@@ -14,6 +15,10 @@ const apiRescuerDownloadDocument = async (documentId: string) => {
       try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/rescuer/document/download/${documentId}`, {
             method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${bearerToken}`
+          },
         });
 
         if (!response.ok) {
