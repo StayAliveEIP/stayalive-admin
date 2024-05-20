@@ -1,12 +1,14 @@
 import { toast } from "sonner"
 
 const apiGetMagicLink = async () => {
+  const bearerToken = localStorage.getItem('bearerToken');
 
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/auth/magic-link`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${bearerToken}`
       },
       body: JSON.stringify({
         email: 'felix.buisson@epitech.eu'
@@ -14,7 +16,13 @@ const apiGetMagicLink = async () => {
     });
 
     if (!response.ok) {
-      throw new Error('Erreur lors de la requête à l\'API');
+      toast("Une erreur innatendue est survenue", {
+        action: {
+          label: "Cacher",
+          onClick: () => console.log("Hiden"),
+        },
+      });
+      throw new Error(`Erreur lors de la requête à l\'API :  ${response.status}`);
     } else {
       toast("Un email contenant votre Magic Link vous a été envoyé.", {
         action: {
