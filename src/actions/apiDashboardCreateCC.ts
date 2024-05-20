@@ -36,8 +36,21 @@ const apiDashboardCreateCC = async (callCenterName: string, callCenterEmail: str
         }
         const result = await response.json();
         console.log("Réponse de l'API :", result);
+        toast("Le Call Center a été créé avec succès", {
+            action: {
+              label: "Cacher",
+              onClick: () => console.log("Hiden"),
+            },
+          });
+        return result;
     } catch (error) {
         console.error("Erreur lors de la création du Call Center:", error);
+        toast("Erreur lors de la création du Call Center", {
+            action: {
+              label: "Cacher",
+              onClick: () => console.log("Hiden"),
+            },
+          });
     }
 }
 

@@ -28,6 +28,9 @@ import {
     NavigationMenuTrigger, navigationMenuTriggerStyle
 } from "@/components/ui/navigation-menu";
 import {Navbar} from "@/components/navbar";
+import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from "@/components/ui/dialog";
+import CreateCallCenter from "@/app/dashboard/create/page";
+import {CreateCallCenterForm} from "@/components/create-call-center-form";
 
 
 export default function DashboardAdmin() {
@@ -49,9 +52,15 @@ export default function DashboardAdmin() {
                     <CardTitle className="m-auto">Mes centres d&#39;appel</CardTitle>
                 </div>
                 <div className={"flex justify-end mb-2"}>
-                    <Link href="/dashboard/create">
-                        <Button>Nouveau Centre</Button>
-                    </Link>
+                    <Dialog>
+                        <DialogTrigger asChild>
+                                <Button>Nouveau Centre</Button>
+                        </DialogTrigger>
+                        <DialogContent className="sm:max-w-[425px]">
+                            <CreateCallCenterForm/>
+                        </DialogContent>
+                    </Dialog>
+
                 </div>
                 <DataTable columns={columns} data={callcenter}/>
             </div>
