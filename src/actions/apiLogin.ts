@@ -1,6 +1,5 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
+
 import { toast } from "sonner"
-import {router} from "next/client";
 
 const apiLogin = async (email: string, password: string) => {
 
@@ -13,7 +12,7 @@ const apiLogin = async (email: string, password: string) => {
     });
     return;
   }
-  //console.log("Données envoyées :", {email, password});
+  console.log("Données envoyées :", {email, password});
 
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/auth/login`, {

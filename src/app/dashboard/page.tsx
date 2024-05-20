@@ -19,7 +19,15 @@ import {
 // import apiDashboardDeleteCC from '@/actions/apiDashboardDeleteCC';
 // apiDashboardDeleteCC("60e6f7b3f5b6f0b3f4f9f6e0")
 import apiGetCCData from '@/actions/apiGetCCData'
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem, NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger, navigationMenuTriggerStyle
+} from "@/components/ui/navigation-menu";
+import {Navbar} from "@/components/navbar";
 
 
 export default function  DashboardAdmin() {
@@ -35,13 +43,7 @@ export default function  DashboardAdmin() {
 
     return (
       <div>
-      <Menubar className="flex justify-between w-[1369px] m-auto mt-2">
-        <MenubarMenu>
-          <Link href="/admin">
-            <MenubarTrigger>Liste des Admins</MenubarTrigger>
-          </Link>
-        </MenubarMenu>
-      </Menubar>
+        <Navbar/>
       <div className="container mx-auto">
         <Card className="w-[1234px] m-auto mt-20">
           <CardHeader>

@@ -20,6 +20,13 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from "@/components/ui/menubar"
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink, NavigationMenuList,
+  NavigationMenuTrigger
+} from "@/components/ui/navigation-menu";
 
 const SignupAdminAccountPage: React.FC = () => {
   const [firstname, setFirstname] = useState('');
@@ -28,7 +35,8 @@ const SignupAdminAccountPage: React.FC = () => {
 
 return (
   <div>
-      <Menubar className="flex justify-between w-[1369px] m-auto mt-2">
+
+  <Menubar className="flex justify-between w-[1369px] m-auto mt-2">
         <MenubarMenu>
           <Link href="/admin">
             <MenubarTrigger>Liste des Admins</MenubarTrigger>

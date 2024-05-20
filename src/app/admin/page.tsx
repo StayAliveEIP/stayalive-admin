@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/menubar"
 import { useEffect, useState } from "react";
 import apiGetAdminData from '@/actions/apiGetAdminData'
+import {Navbar} from "@/components/navbar";
 
 
 export default function  DashboardAdmin() {
@@ -32,13 +33,7 @@ export default function  DashboardAdmin() {
 
     return (
       <div>
-      <Menubar className="flex justify-between w-[1369px] m-auto mt-2">
-        <MenubarMenu>
-          <Link href="/dashboard">
-            <MenubarTrigger>Dashboard Administrateur</MenubarTrigger>
-          </Link>
-        </MenubarMenu>
-      </Menubar>
+        <Navbar/>
       <div className="container mx-auto">
         <Card className="w-[1234px] m-auto mt-20">
           <CardHeader>
