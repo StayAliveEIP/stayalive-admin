@@ -10,11 +10,6 @@ import {Button} from "@/components/ui/button";
 import Link from 'next/link';
 import {Admin, columns} from "./columns";
 import {DataTable} from "./data-table";
-import {
-    Menubar,
-    MenubarMenu,
-    MenubarTrigger,
-} from "@/components/ui/menubar"
 import {useEffect, useState} from "react";
 import apiGetAdminData from '@/actions/apiGetAdminData'
 import {Navbar} from "@/components/navbar";
@@ -35,7 +30,7 @@ export default function DashboardAdmin() {
         <div>
             <Navbar/>
             <div className="container mx-auto">
-                <CardTitle className="flex justify-center mb-20">Liste des administrateurs</CardTitle>
+                <CardTitle className="flex justify-center mb-20 mt-7">Liste des administrateurs</CardTitle>
                 <div className={"flex justify-end mb-2"}>
                     <Link href="/signup">
                         <Button>Nouveau compte</Button>

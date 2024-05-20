@@ -27,6 +27,7 @@ import {
   NavigationMenuLink, NavigationMenuList,
   NavigationMenuTrigger
 } from "@/components/ui/navigation-menu";
+import {Navbar} from "@/components/navbar";
 
 const SignupAdminAccountPage: React.FC = () => {
   const [firstname, setFirstname] = useState('');
@@ -35,17 +36,7 @@ const SignupAdminAccountPage: React.FC = () => {
 
 return (
   <div>
-
-  <Menubar className="flex justify-between w-[1369px] m-auto mt-2">
-        <MenubarMenu>
-          <Link href="/admin">
-            <MenubarTrigger>Liste des Admins</MenubarTrigger>
-          </Link>
-          <Link href="/dashboard">
-            <MenubarTrigger>Dashboard Administrateur</MenubarTrigger>
-          </Link>
-        </MenubarMenu>
-      </Menubar>
+    <Navbar/>
   <Card className="w-[333px]  m-auto mt-20">
     <Avatar className="m-auto mt-5">
         <AvatarImage src="https://cdn.discordapp.com/attachments/1130401857890697285/1190320898281066607/logo_Background_Removed.png?ex=65c649b9&is=65b3d4b9&hm=cf3172e52f346ff143dc992987a9a9dbe37e7baf1044928746c16f1637aa9ce1&" />
