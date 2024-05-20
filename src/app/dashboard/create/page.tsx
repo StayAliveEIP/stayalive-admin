@@ -76,9 +76,9 @@ return (
     </CardContent>
     <CardFooter className="flex justify-between">
       <Link href="/dashboard">
-        <Button variant="destructive">Annuler</Button>
+        <Button variant="outline">Annuler</Button>
       </Link>
-      <Button variant="outline" onClick={() => apiDashboardCreateCC(callCenterName, callCenterEmail, callCenterPhone, callCenterAddress)}>Créer un centre d&#39;appel</Button>
+      <Button variant="default" onClick={() => apiDashboardCreateCC(callCenterName, callCenterEmail, callCenterPhone, callCenterAddress)}>Créer un centre d&#39;appel</Button>
     </CardFooter>
   </Card>
   </div>
