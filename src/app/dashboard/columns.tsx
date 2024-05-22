@@ -67,8 +67,10 @@ export const columns: ColumnDef<CallCenter>[] = [
                                     toast.error(data.message)
                                 } else if (data && !data.error) {
                                     toast.success(data.message)
+                                    window.location.reload()
                                 }
                             }
+
                         }>Supprimer ce centre d&#39;appel</DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>

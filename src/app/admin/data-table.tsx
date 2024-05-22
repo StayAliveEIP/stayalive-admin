@@ -16,6 +16,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import {Check, Cross, X} from "lucide-react";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
@@ -54,9 +55,13 @@ export function DataTable<TData, TValue>({
             {table.getRowModel().rows?.length ? (table.getRowModel().rows.map((row) => (
                 <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
-                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                    </TableCell>
+                      <TableCell key={cell.id}>
+                        {cell.column.id === 'emailVerified' ? (
+                            cell.getValue() === true ? <Check /> : <X />
+                        ) : (
+                            flexRender(cell.column.columnDef.cell, cell.getContext())
+                        )}
+                      </TableCell>
                   ))}
                 </TableRow>
               ))
