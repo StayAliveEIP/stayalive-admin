@@ -19,7 +19,7 @@ export const CreateCallCenterForm = () => {
     return (
         <div className="flex-col items-center justify-between w-[333px] m-auto">
                 <CardHeader>
-                    <CardTitle>Création de Centre d'Appel</CardTitle>
+                    <CardTitle>Création de Centre d&apos;Appel</CardTitle>
                 </CardHeader>
                 <CardContent>
                     <Label htmlFor="name">Nom</Label>

@@ -26,7 +26,7 @@ const LoginAdminAccountPage: React.FC = () => {
     <div>
       <Card className="w-[333px] m-auto mt-20">
         <Avatar className="m-auto mt-5">
-          <AvatarImage src={"https://cdn.discordapp.com/attachments/1130401857890697285/1190320898281066607/logo_Background_Removed.png?ex=664cc2b9&is=664b7139&hm=f2c8ad8fb315a5dcf9277db0fd0c850faa7a7cd6d65d5e0b1586f5a7c0f39a69&"} />
+          <AvatarImage src={"https://media.discordapp.net/attachments/1130401857890697285/1190320898281066607/logo_Background_Removed.png?ex=664ebcf9&is=664d6b79&hm=095ea7e28966e1f05a0503a77c729634684994cb9feb239cab68660aab5edb8a&=&format=webp&quality=lossless&width=585&height=568"} />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
         <CardHeader>

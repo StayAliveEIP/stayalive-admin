@@ -56,7 +56,7 @@ export function DataTable<TData, TValue>({
                 <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
                   {row.getVisibleCells().map((cell) => (
                       <TableCell key={cell.id}>
-                        {cell.column.columnDef.accessorKey === 'emailVerified' ? (
+                        {cell.column.id === 'emailVerified' ? (
                             cell.getValue() === true ? <Check /> : <X />
                         ) : (
                             flexRender(cell.column.columnDef.cell, cell.getContext())

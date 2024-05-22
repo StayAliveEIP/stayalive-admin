@@ -28,7 +28,7 @@ return (
   <div>
   <Card className="flex-col items-center justify-between w-[333px] m-auto mt-20">
     <CardHeader>
-      <CardTitle>Création de Centre d'Appel</CardTitle>
+      <CardTitle>Création de Centre d&apos;Appel</CardTitle>
     </CardHeader>
     <CardContent>
     <Label htmlFor="name">Nom</Label>
