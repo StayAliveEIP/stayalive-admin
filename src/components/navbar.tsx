@@ -37,6 +37,13 @@ export function Navbar() {
                                 </NavigationMenuLink>
                             </Link>
                         </NavigationMenuItem>
+                        <NavigationMenuItem>
+                            <Link href="/defibrillator" legacyBehavior passHref>
+                                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                    Défibrillateurs
+                                </NavigationMenuLink>
+                            </Link>
+                        </NavigationMenuItem>
                     </NavigationMenuList>
                 </NavigationMenu>
             </div>
