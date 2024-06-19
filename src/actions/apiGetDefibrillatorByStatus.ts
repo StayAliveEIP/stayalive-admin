@@ -2,7 +2,7 @@ import { Defibrillator, columns } from "@/app/defibrillator/columns";
 
 async function apiGetDefibrillatorByStatus(status: 'PENDING' | 'VALIDATED' | 'REFUSED'): Promise<Defibrillator[]> {
     const bearerToken = localStorage.getItem('bearerToken');
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/defibrillator/status`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/defibrillator/status?status=${status}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

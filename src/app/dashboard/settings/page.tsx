@@ -17,6 +17,7 @@ import {Label} from "@/components/ui/label";
 import apiAdminInfo from '@/actions/apiAdminInfo'
 import apiGetMagicLink from '@/actions/apiGetMagicLink'
 import apiAdminChangeInfo from '@/actions/apiAdminChangeInfo'
+import apiVerifyEmail from '@/actions/apiVerifyEmail'
 
 const SettingsAdmin: React.FC = () => {
     const [accountFirstname, setAccountFirstname] = useState('');
@@ -66,6 +67,9 @@ const SettingsAdmin: React.FC = () => {
           <Link href="/dashboard/settings/changeemail">
             <Button>Changer mon email</Button>
           </Link>
+        </CardContent>
+        <CardContent>
+          <Button onClick={() => apiVerifyEmail("a1b2c3d4e5f6g7h8i9j0")}>Verifie mon Email</Button>
         </CardContent>
         <CardContent>
           <Link href="/dashboard/settings/changepassword">

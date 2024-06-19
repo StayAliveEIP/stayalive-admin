@@ -11,6 +11,8 @@ import {
     DropdownMenuLabel,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import apiDefibrillatorStatusUpdate from "@/actions/apiDefibrillatorStatusUpdate"
+import { toast } from "sonner"
 
 export type Defibrillator = {
     _id: string,
@@ -37,25 +39,22 @@ export const columns: ColumnDef<Defibrillator>[] = [
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                         <DropdownMenuLabel>Action</DropdownMenuLabel>
-                        <DropdownMenuItem>Mettre à jour le statut de ce défibrillateur</DropdownMenuItem>
+                        <DropdownMenuItem onClick={
+                            async () => {
+                                const data = await apiDefibrillatorStatusUpdate(payment._id, localStorage.getItem("bearerToken") as string)
+                                if (data && data.error) {
+                                    toast.error(data.message)
+                                } else if (data && !data.error) {
+                                    toast.success(data.message)
+                                window.location.reload()
+                                }
+                            }
+                        }>Mettre à jour le statut de ce défibrillateur</DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
             )
         },
     },
-/* Pour l'action "MàJ statut"
-onClick={
-    async () => {
-        const data = await deleteCallCenter(payment.id, localStorage.getItem("bearerToken") as string)
-        if (data && data.error) {
-            toast.error(data.message)
-        } else if (data && !data.error) {
-            toast.success(data.message)
-            window.location.reload()
-        }
-    }
-}
-*/
 
 /* Afficher l'image/photo en utilisant l'URL
     {
@@ -68,7 +67,7 @@ onClick={
         header: "Nom",
     },
     {
-        accessorKey: "adress",
+        accessorKey: "address",
         header: "Addresse",
     },
     {
