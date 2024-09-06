@@ -13,6 +13,13 @@ async function apiVerifyEmail(code: string): Promise<void> {
 
     if (!response.ok) {
         throw new Error('Network response was not ok');
+    } else {
+        toast("Votre adresse email a bien été vérifiée.", {
+            action: {
+            label: "Cacher",
+            onClick: () => console.log("Hiden"),
+            },
+          });
     }
 
     const data = await response.json();

@@ -15,7 +15,7 @@ import React, {useEffect, useState} from "react";
 import {Navbar} from "@/components/navbar";
 import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from "@/components/ui/dialog";
 import {SelectDefibrillator} from "@/components/select-defibrillator";
-
+import {ListFilter} from "lucide-react";
 
 export default function DashboardAdmin() {
     const [defibrillator, setDefibrillator] = useState<Defibrillator[]>([]);
@@ -38,7 +38,10 @@ export default function DashboardAdmin() {
                 <div className={"flex justify-end mb-2"}>
                     <Dialog>
                         <DialogTrigger asChild>
-                            <Button>Option d'affichage</Button>
+                            <Button>
+                                <ListFilter className={"mr-2 h-4 w-4"}/>
+                                Option d'affichage
+                            </Button>
                         </DialogTrigger>
                         <DialogContent className="sm:max-w-[425px]">
                             <SelectDefibrillator/>

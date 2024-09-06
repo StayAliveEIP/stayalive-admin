@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input";
 import {Label} from "@/components/ui/label";
 import apiAdminInfo from '@/actions/apiAdminInfo'
 import apiAdminChangePassword from '@/actions/apiAdminChangePassword'
+import {Navbar} from "@/components/navbar";
 
 const ChangePassword: React.FC = () => {
     const [accountOldPassword, setAccountOldPassword] = useState('');
@@ -33,6 +34,7 @@ const ChangePassword: React.FC = () => {
 
     return (
       <div>
+        <Navbar/>
       <Card className="w-[555px] m-auto mt-20">
         <CardHeader>
           <CardTitle>Changer mon mot de passe</CardTitle>

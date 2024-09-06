@@ -13,6 +13,7 @@ import {DataTable} from "./data-table";
 import {useEffect, useState} from "react";
 import apiGetAdminData from '@/actions/apiGetAdminData'
 import {Navbar} from "@/components/navbar";
+import {Plus} from "lucide-react";
 
 
 export default function DashboardAdmin() {
@@ -33,7 +34,10 @@ export default function DashboardAdmin() {
                 <CardTitle className="flex justify-center mb-20 mt-7">Liste des administrateurs</CardTitle>
                 <div className={"flex justify-end mb-2"}>
                     <Link href="/signup">
-                        <Button>Nouveau compte</Button>
+                        <Button>
+                        <Plus className={"mr-2 h-4 w-4"}/>
+                        Nouveau compte
+                        </Button>
                     </Link>
                 </div>
                 <DataTable columns={columns} data={accounts}/>

@@ -7,6 +7,7 @@ import {Button} from "@/components/ui/button";
 import apiGetDefibrillatorData from '@/actions/apiGetDefibrillatorData'
 import apiGetDefibrillatorByStatus from '@/actions/apiGetDefibrillatorByStatus'
 import apiGetDefibrillatorByID from '@/actions/apiGetDefibrillatorByID'
+import {Globe, CheckCircle, Clock, MinusCircle, Search} from "lucide-react";
 
 export const SelectDefibrillator = () => {
     const [defibrillatorID, setDefibrillatorID] = useState('');
@@ -24,7 +25,12 @@ export const SelectDefibrillator = () => {
                                 window.location.href = "/defibrillator"
                             }
                         }}
-                    >Afficher tout les défibrillateurs</Button>
+                    >
+                        <Globe className={"mr-2 h-4 w-4"}/>
+                        Afficher tout les défibrillateurs
+                    </Button>
+                </CardContent>
+                <CardContent>
                     <Button variant="default" onClick={async () =>
                         {
                             const response = await apiGetDefibrillatorByStatus('VALIDATED')
@@ -32,7 +38,12 @@ export const SelectDefibrillator = () => {
                                 window.location.href = "/defibrillator/validated"
                             }
                         }}
-                    >Afficher les défibrillateurs validés</Button>
+                    >
+                        <CheckCircle className={"mr-2 h-4 w-4"}/>
+                        Afficher les défibrillateurs validés
+                    </Button>
+                    </CardContent>
+                    <CardContent>
                     <Button variant="default" onClick={async () =>
                         {
                             const response = await apiGetDefibrillatorByStatus('PENDING')
@@ -40,7 +51,12 @@ export const SelectDefibrillator = () => {
                                 window.location.href = "/defibrillator/pending"
                             }
                         }}
-                    >Afficher les défibrillateurs en attente</Button>
+                    >
+                        <Clock className={"mr-2 h-4 w-4"}/>
+                        Afficher les défibrillateurs en attente
+                    </Button>
+                    </CardContent>
+                    <CardContent>
                     <Button variant="default" onClick={async () =>
                         {
                             const response = await apiGetDefibrillatorByStatus('REFUSED')
@@ -48,7 +64,12 @@ export const SelectDefibrillator = () => {
                                 window.location.href = "/defibrillator/refused"
                             }
                         }}
-                    >Afficher les défibrillateurs refusés</Button>
+                    >
+                        <MinusCircle className={"mr-2 h-4 w-4"}/>
+                        Afficher les défibrillateurs refusés
+                    </Button>
+                    </CardContent>
+                    <CardContent>
                     <Input
                         type="id"
                         placeholder="Entrez l'ID du défibrillateurs"
@@ -63,7 +84,10 @@ export const SelectDefibrillator = () => {
                                 window.location.href = "/defibrillator/id"
                             }
                         }}
-                    >Afficher ce défibrillateur</Button>
+                    >
+                        <Search className={"mr-2 h-4 w-4"}/>
+                        Afficher ce défibrillateur
+                    </Button>
                 </CardContent>
         </div>
     );

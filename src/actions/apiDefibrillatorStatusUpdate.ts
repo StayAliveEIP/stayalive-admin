@@ -13,7 +13,7 @@ const apiDefibrillatorStatusUpdate = async (_id: string, token: string) => {
         },
         body: JSON.stringify({
             id: _id,
-            status: "VALIDATED"
+            status: "CHANGER CE TRUS POUR QUE CE SOIR 'VALIDATED' ou 'REFUSED'"
         })
     });
     if (!response.ok) {

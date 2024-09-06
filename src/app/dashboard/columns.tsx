@@ -50,12 +50,6 @@ export const columns: ColumnDef<CallCenter>[] = [
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                         <DropdownMenuLabel>Action</DropdownMenuLabel>
-                        <Link href="/dashboard/callcenter">
-                            <DropdownMenuItem>Voir les infos du centre d&#39;appel</DropdownMenuItem>
-                        </Link>
-                        <Link href="/dashboard/rescuers">
-                            <DropdownMenuItem>Voir la liste de tout les sauveteurs</DropdownMenuItem>
-                        </Link>
                         <Link href={`/dashboard/callcenter/edit/${payment.id}`}>
                             <DropdownMenuItem>Mettre à jour les infos du centre d&#39;appel</DropdownMenuItem>
                         </Link>

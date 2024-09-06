@@ -31,7 +31,7 @@ import {Navbar} from "@/components/navbar";
 import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from "@/components/ui/dialog";
 import CreateCallCenter from "@/app/dashboard/create/page";
 import {CreateCallCenterForm} from "@/components/create-call-center-form";
-
+import {Plus} from "lucide-react";
 
 export default function DashboardAdmin() {
     const [callcenter, setcallcenter] = useState<CallCenter[]>([]);
@@ -54,7 +54,10 @@ export default function DashboardAdmin() {
                 <div className={"flex justify-end mb-2"}>
                     <Dialog>
                         <DialogTrigger asChild>
-                                <Button>Nouveau Centre</Button>
+                                <Button>
+                                    <Plus className={"mr-2 h-4 w-4"}/>
+                                    Nouveau Centre
+                                </Button>
                         </DialogTrigger>
                         <DialogContent className="sm:max-w-[425px]">
                             <CreateCallCenterForm/>
@@ -67,11 +70,3 @@ export default function DashboardAdmin() {
         </div>
     );
 };
-
-
-/*
-    AFFICHAGE DE LA DERNIERE INTERVENTION
-        <CardContent>Sauveteur: {rescueRescuerName}</CardContent>
-        <CardContent>Lieu: {rescuePlace}</CardContent>
-        <CardContent>Réussi: {rescueSuccess ? 'Non' : 'Oui'}</CardContent>
-*/

@@ -2,7 +2,13 @@
 
 import apiRescuerDownloadDocument from "@/actions/apiRescuerDownloadDocument"
 
-import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
 import {useEffect, useState} from "react";
@@ -15,9 +21,12 @@ import { Menubar, MenubarMenu, MenubarTrigger } from "@/components/ui/menubar"
 import apiRescuerGet from "@/actions/apiRescuerGet";
 import { DataTable } from "../data-table";
 import {Navbar} from "@/components/navbar";
+import {Check, DeleteIcon, List, Link2, Mail, Pencil, Trash} from "lucide-react";
+import apiGetMagicLink from '@/actions/apiGetMagicLink'
 
 export default function RescuersList() {
   const [rescuers, setRescuers] = useState<Rescuers[]>([]);
+  const [rescuerEmail, setRescuerEmail] = useState('');
   useEffect(() => {
     apiRescuerGet("65e95e0591687dbe7cc074a5").then(r => {
       console.log(r);
@@ -31,7 +40,15 @@ export default function RescuersList() {
       <div>
         <Navbar/>
         <div className="container mx-auto">
-              <CardTitle className="m-auto flex justify-center mb-20 mt-7">Listes des sauveteurs</CardTitle>
+          <CardTitle className="m-auto flex justify-center mb-20 mt-7">Listes des sauveteurs</CardTitle>
+            <CardContent>
+              <Label htmlFor="password">Envoyer un Magic Link: </Label>
+              <Input className="w-1/4" placeholder="example@email.com" value={rescuerEmail} onChange={(e) => setRescuerEmail(e.target.value)}></Input>
+              <Button variant="secondary" onClick={() => apiGetMagicLink(rescuerEmail)}>
+              <Check className={"mr-2 h-4 w-4"}/>
+                Envoyer le Magic Link
+              </Button>
+            </CardContent>
             <DataTable columns={columns} data={rescuers} />
         </div>
       </div>
