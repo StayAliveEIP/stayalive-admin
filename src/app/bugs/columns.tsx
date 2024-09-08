@@ -11,6 +11,8 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import apiUpdateBugStatus from "@/actions/apiUpdateBugStatus"
+import apiDeleteBugs from "@/actions/apiDeleteBugs"
 import {toast} from "sonner";
 
 export type Bugs = {
@@ -46,9 +48,29 @@ export const columns: ColumnDef<Bugs>[] = [
               <DropdownMenuContent align="end">
                 <DropdownMenuLabel>Action</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Mettre à jour le status du bug</DropdownMenuItem>
+                <DropdownMenuItem onClick={
+                  async () => {
+                    const data = await apiUpdateBugStatus(payment.id, localStorage.getItem("bearerToken") as string)
+                    if (data && data.error)
+                        toast.error(data.message)
+                    else if (data && !data.error) {
+                      toast.success(data.message)
+                      window.location.reload()
+                    }
+                  }
+                }>Mettre à jour le status du bug</DropdownMenuItem>
                 <DropdownMenuItem>Mettre à jour le niveau du bug</DropdownMenuItem>
-                <DropdownMenuItem>Supprimer ce bug</DropdownMenuItem>
+                <DropdownMenuItem onClick={
+                  async () => {
+                    const data = await apiDeleteBugs(payment.id, localStorage.getItem("bearerToken") as string)
+                    if (data && data.error)
+                        toast.error(data.message)
+                    else if (data && !data.error) {
+                      toast.success(data.message)
+                      window.location.reload()
+                    }
+                  }
+                }>Supprimer ce bug</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           )

@@ -40,7 +40,7 @@ export default function RescuersList() {
       <div>
         <Navbar/>
         <div className="container mx-auto">
-          <CardTitle className="m-auto flex justify-center mb-20 mt-7">Listes des sauveteurs</CardTitle>
+          <CardTitle className="m-auto flex justify-center mb-20 mt-7">Envoie de Magic Link aux sauveteurs</CardTitle>
             <CardContent>
               <Label htmlFor="password">Envoyer un Magic Link: </Label>
               <Input className="w-1/4" placeholder="example@email.com" value={rescuerEmail} onChange={(e) => setRescuerEmail(e.target.value)}></Input>
@@ -49,12 +49,13 @@ export default function RescuersList() {
                 Envoyer le Magic Link
               </Button>
             </CardContent>
-            <DataTable columns={columns} data={rescuers} />
         </div>
       </div>
     )
 
 };
+
+// <DataTable columns={columns} data={rescuers} />
 
 /*
 return (

@@ -11,18 +11,18 @@ import { Button } from "@/components/ui/button";
 import Link from 'next/link';
 import {useEffect, useState} from "react";
 import {toast} from "sonner";
-import { Bugs, columns } from "./columns";
+import { Feedback, columns } from "./columns";
 import { DataTable } from "./data-table";
 import {Navbar} from "@/components/navbar";
-import apiGetBugs from "@/actions/apiGetBugs";
+import apiGetFeedback from "@/actions/apiGetFeedback";
 
 export default function BugsList() {
-    const [bugs, setBugs] = useState<Bugs[]>([]);
+    const [feedback, setFeedback] = useState<Feedback[]>([]);
     useEffect(() => {
-      apiGetBugs().then(r => {
+        apiGetFeedback().then(r => {
         console.log(r);
         if (r != undefined) {
-          setBugs(r)
+          setFeedback(r)
         }
     })
     }, [])
@@ -31,8 +31,8 @@ export default function BugsList() {
         <div>
           <Navbar/>
           <div className="container mx-auto">
-            <CardTitle className="m-auto flex justify-center mb-20 mt-7">Listes des bugs</CardTitle>
-              <DataTable columns={columns} data={bugs} />
+            <CardTitle className="m-auto flex justify-center mb-20 mt-7">Listes des feedbacks</CardTitle>
+              <DataTable columns={columns} data={feedback} />
           </div>
         </div>
       )
