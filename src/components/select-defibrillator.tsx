@@ -79,6 +79,7 @@ export const SelectDefibrillator = () => {
                     <Button variant="default" onClick={async () =>
                         {
                             const newDefibrillatorID = defibrillatorID;
+                            console.log("Donnee envoyee :", newDefibrillatorID)
                             const response = await apiGetDefibrillatorByID(newDefibrillatorID)
                             if (response) {
                                 window.location.href = "/defibrillator/id"

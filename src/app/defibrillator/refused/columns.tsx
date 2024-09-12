@@ -12,6 +12,7 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import apiDefibrillatorStatusUpdate from "@/actions/apiDefibrillatorStatusUpdate"
+import apiDefebrillatorRefused from "@/actions/apiDefebrillatorRefused";
 import { toast } from "sonner"
 
 export type Defibrillator = {
@@ -49,32 +50,27 @@ export const columns: ColumnDef<Defibrillator>[] = [
                                 window.location.reload()
                                 }
                             }
-                        }>Mettre à jour le statut de ce défibrillateur</DropdownMenuItem>
+                        }>Valider ce défibrillateur</DropdownMenuItem>
+                        <DropdownMenuItem onClick={
+                            async () => {
+                                const data = await apiDefebrillatorRefused(payment._id, localStorage.getItem("bearerToken") as string)
+                                if (data && data.error) {
+                                    toast.error(data.message)
+                                } else if (data && !data.error) {
+                                    toast.success(data.message)
+                                window.location.reload()
+                                }
+                            }
+                        }>Refuser ce défibrillateur</DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
             )
         },
     },
-/* Pour l'action "MàJ statut"
-onClick={
-    async () => {
-        const data = await deleteCallCenter(payment.id, localStorage.getItem("bearerToken") as string)
-        if (data && data.error) {
-            toast.error(data.message)
-        } else if (data && !data.error) {
-            toast.success(data.message)
-            window.location.reload()
-        }
-    }
-}
-*/
-
-/* Afficher l'image/photo en utilisant l'URL
     {
-    accessorKey: "address.street",
-    header: "Rue",
+        accessorKey: "_id",
+        header: "ID",
     },
-*/
     {
         accessorKey: "name",
         header: "Nom",

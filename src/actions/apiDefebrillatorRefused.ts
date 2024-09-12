@@ -4,7 +4,7 @@ import {toast} from "sonner";
 import {revalidatePath} from "next/cache";
 import {redirect} from "next/navigation";
 
-const apiDefibrillatorStatusUpdate = async (_id: string, token: string) => {
+const apiDefebrillatorRefused = async (_id: string, token: string) => {
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/defibrillator/update-status`, {
         method: 'POST',
         headers: {
@@ -13,7 +13,7 @@ const apiDefibrillatorStatusUpdate = async (_id: string, token: string) => {
         },
         body: JSON.stringify({
             id: _id,
-            status: "VALIDATED"
+            status: "REFUSED"
         })
     });
     if (!response.ok) {
@@ -22,4 +22,4 @@ const apiDefibrillatorStatusUpdate = async (_id: string, token: string) => {
      return {error: false, message: "Status mis à jour !"}
 }
 
-export default apiDefibrillatorStatusUpdate;
+export default apiDefebrillatorRefused;
