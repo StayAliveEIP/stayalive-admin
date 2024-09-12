@@ -16,20 +16,20 @@ import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from "@
 import {SelectDefibrillator} from "@/components/select-defibrillator";
 import apiGetDefibrillatorByID from "@/actions/apiGetDefibrillatorByID";
 
-export interface DashboardAdminProps {
-    defibrillatorID: string;
+interface DashboardAdminProps {
+    id: string;
 }
 
 export default function DashboardAdmin({ params, searchParams }: {params: DashboardAdminProps, searchParams: any }) {
     const [defibrillator, setDefibrillator] = useState<Defibrillator[]>([]);
     useEffect(() => {
-        apiGetDefibrillatorByID(params.defibrillatorID).then(r => {
+        apiGetDefibrillatorByID(params.id).then(r => {
             console.log(r);
             if (r != undefined) {
                 setDefibrillator([r])
             }
         })
-    }, [params.defibrillatorID])
+    }, [params.id])
 
     return (
         <div>

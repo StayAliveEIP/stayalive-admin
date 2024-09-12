@@ -82,7 +82,7 @@ export const SelectDefibrillator = () => {
                             console.log("Donnee envoyee :", newDefibrillatorID)
                             const response = await apiGetDefibrillatorByID(newDefibrillatorID)
                             if (response) {
-                                window.location.href = "/defibrillator/id"
+                                window.location.href = `/defibrillator/${newDefibrillatorID}`
                             }
                         }}
                     >
