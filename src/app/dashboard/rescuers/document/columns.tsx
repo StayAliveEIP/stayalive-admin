@@ -12,18 +12,21 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import {toast} from "sonner";
-import Link from 'next/link';
 import apiRescuerGetDocument from "@/actions/apiRescuerGetDocument"
+import apiRescuerDownloadDocument from "@/actions/apiRescuerDownloadDocument"
 
-export type Rescuers = {
-    _id: string,
-    firstname: string,
-    lastname: string,
-    profilePictureUrl: string,
-    suspended: boolean
+export type Documents = {
+    type: string,
+    data: {
+        id: string,
+        documentType: string,
+        status: string,
+        message: string,
+        lastUpdate: string
+    }
 }
 
-export const columns: ColumnDef<Rescuers>[] = [
+export const columns: ColumnDef<Documents>[] = [
     {
         id: "action",
         cell: ({row}) => {
@@ -38,9 +41,7 @@ export const columns: ColumnDef<Rescuers>[] = [
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                     <DropdownMenuLabel>Action</DropdownMenuLabel>
-                        <Link href={`/dashboard/rescuers/document`}>
-                            <DropdownMenuItem onClick={async () => apiRescuerGetDocument(payment._id)}>Afficher les documents du sauveteur</DropdownMenuItem>
-                        </Link>
+                        <DropdownMenuItem onClick={async () => apiRescuerDownloadDocument(payment.data.id)}>Telecharger le document</DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
             )
@@ -48,15 +49,23 @@ export const columns: ColumnDef<Rescuers>[] = [
     },
 
     {
-        accessorKey: "firstname",
-        header: "Prenom",
+        accessorKey: "data.id",
+        header: "ID",
     },
     {
-        accessorKey: "lastname",
-        header: "Nom",
+        accessorKey: "data.documentType",
+        header: "Type de document",
     },
     {
-        accessorKey: "suspended",
-        header: "Suspendu ?",
+        accessorKey: "data.status",
+        header: "Status",
+    },
+    {
+        accessorKey: "data.message",
+        header: "Commentaire",
+    },
+    {
+        accessorKey: "data.lastUpdate",
+        header: "Mis à jour le",
     },
 ]

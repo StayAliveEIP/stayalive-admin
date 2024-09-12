@@ -1,36 +1,54 @@
-import { toast } from "sonner"
+"use client";
 
-const apiAccountDeleteID = async (accountID: string) => {
+import { toast } from "sonner";
+
+const apiAccountDeleteID = async (id: string) => {
     const bearerToken = localStorage.getItem('bearerToken');
-    if (!accountID.trim()) {
+    
+    if (!id.trim()) {
         toast("L'ID du compte admin est requis.", {
             action: {
-              label: "Cacher",
-              onClick: () => console.log("Hiden"),
+                label: "Cacher",
+                onClick: () => console.log("Caché"),
             },
-          });
+        });
         return;
-      }
-    console.log("Données envoyées :", {accountID});
+    }
+
+    console.log("Données envoyées :", { id });
+
     try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/account/delete`, {
-            method: 'DELETE',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${bearerToken}`
+                'Authorization': `Bearer ${bearerToken}`,
             },
-            body: JSON.stringify({ id: accountID })
+            body: JSON.stringify({ id })
         });
 
         if (!response.ok) {
             throw new Error(`Erreur HTTP: ${response.status}`);
         }
-        console.log(response);
+
         const result = await response.json();
         console.log("Réponse de l'API :", result);
+
+        toast(result.message || "Compte supprimé avec succès.", {
+            action: {
+                label: "Ok",
+                onClick: () => console.log("Message caché"),
+            },
+        });
     } catch (error) {
         console.error("Erreur lors de la suppression du compte admin:", error);
+        toast("Échec de la suppression du compte admin.", {
+            action: {
+                label: "Réessayer",
+                onClick: () => console.log("Réessayer"),
+            },
+        });
     }
-}
+};
 
 export default apiAccountDeleteID;

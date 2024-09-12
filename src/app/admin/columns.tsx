@@ -13,6 +13,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
+import apiAccountDeleteID from "@/actions/apiAccountDeleteID";
+
 export type Admin = {
     id: string,
     firstname: string,
@@ -39,10 +41,7 @@ export const columns: ColumnDef<Admin>[] = [
               <DropdownMenuContent align="end">
                 <DropdownMenuLabel>Action</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <Link href="/admin/edit">
-                <DropdownMenuItem>Mettre à jour les infos du compte administrateur</DropdownMenuItem>
-                </Link>
-                <DropdownMenuItem>Supprimer cet administrateur</DropdownMenuItem>
+                <DropdownMenuItem onClick={async () => apiAccountDeleteID(payment.id)}>Supprimer cet administrateur</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           )
