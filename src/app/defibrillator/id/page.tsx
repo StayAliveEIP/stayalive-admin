@@ -38,7 +38,7 @@ export default function DashboardAdmin({ defibrillatorID }: DashboardAdminProps)
                 <div className={"flex justify-end mb-2"}>
                     <Dialog>
                         <DialogTrigger asChild>
-                            <Button>Option d'affichage</Button>
+                            <Button>Option d&apos;affichage</Button>
                         </DialogTrigger>
                         <DialogContent className="sm:max-w-[425px]">
                             <SelectDefibrillator/>

@@ -40,7 +40,7 @@ export default function DashboardAdmin() {
                         <DialogTrigger asChild>
                             <Button>
                                 <ListFilter className={"mr-2 h-4 w-4"}/>
-                                Option d'affichage
+                                Option d&apos;affichage
                             </Button>
                         </DialogTrigger>
                         <DialogContent className="sm:max-w-[425px]">
