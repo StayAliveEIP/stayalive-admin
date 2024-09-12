@@ -16,7 +16,7 @@ import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from "@
 import {SelectDefibrillator} from "@/components/select-defibrillator";
 import apiGetDefibrillatorByID from "@/actions/apiGetDefibrillatorByID";
 
-interface DashboardAdminProps {
+export interface DashboardAdminProps {
     defibrillatorID: string;
 }
 
