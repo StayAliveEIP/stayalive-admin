@@ -1,6 +1,6 @@
 "use client";
 
-import { Defibrillator, columns } from "@/app/defibrillator/columns";
+import { Defibrillator } from "@/app/defibrillator/columns";
 import { toast } from "sonner";
 
 async function apiGetDefibrillatorById(id: string | undefined): Promise<Defibrillator | undefined> {

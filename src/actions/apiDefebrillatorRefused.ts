@@ -1,9 +1,5 @@
 "use server"
 
-import {toast} from "sonner";
-import {revalidatePath} from "next/cache";
-import {redirect} from "next/navigation";
-
 const apiDefebrillatorRefused = async (_id: string, token: string) => {
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/defibrillator/update-status`, {
         method: 'POST',

@@ -32,7 +32,7 @@ const apiDashboardCreateCC = async (callCenterName: string, callCenterEmail: str
         });
 
         if (!response.ok) {
-            //throw new Error(`Erreur HTTP: ${response.status}`);
+            throw new Error(`Erreur HTTP: ${response.status}`);
         }
         const result = await response.json();
         console.log("Réponse de l'API :", result);

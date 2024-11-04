@@ -1,5 +1,4 @@
 
-
 export const apiDashboardModifyCC = async (data: any) => {
     const bearerToken = localStorage.getItem('bearerToken');
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/call-center/update`, {

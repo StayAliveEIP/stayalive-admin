@@ -1,4 +1,5 @@
 import { toast } from "sonner"
+
 const apiAccountDelete = async (accountPassword: string) => {
   const bearerToken = localStorage.getItem('bearerToken');
     if (!accountPassword.trim()) {
@@ -24,7 +25,7 @@ const apiAccountDelete = async (accountPassword: string) => {
             })
         });
         if (!response.ok) {
-            //throw new Error(`Erreur HTTP: ${response.status}`);
+            throw new Error(`Erreur HTTP: ${response.status}`);
         }
         console.log(response);
         const result = await response.json();
@@ -36,7 +37,7 @@ const apiAccountDelete = async (accountPassword: string) => {
               onClick: () => console.log("Hiden"),
             },
           });
-        //console.error("Erreur lors de la suppression du compte admin:", error);
+        console.error("Erreur lors de la suppression du compte admin:", error);
     }
 }
 

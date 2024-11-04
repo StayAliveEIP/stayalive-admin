@@ -1,18 +1,12 @@
 "use client"
 
-import {
-    Card,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
-import {Button} from "@/components/ui/button";
-import Link from 'next/link';
 import {Defibrillator, columns} from "./columns";
-import {DataTable} from "./data-table";
+import {Dialog, DialogContent, DialogTrigger} from "@/components/ui/dialog";
 import React, {useEffect, useState} from "react";
+
+import {Button} from "@/components/ui/button";
+import {DataTable} from "./data-table";
 import {Navbar} from "@/components/navbar";
-import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from "@/components/ui/dialog";
 import {SelectDefibrillator} from "@/components/select-defibrillator";
 import apiGetDefibrillatorByID from "@/actions/apiGetDefibrillatorByID";
 

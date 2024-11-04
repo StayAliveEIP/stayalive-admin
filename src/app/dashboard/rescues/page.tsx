@@ -1,10 +1,11 @@
-"use client"
+"use server"
 
 import {
     Card,
     CardHeader,
     CardTitle,
-  } from "@/components/ui/card";
+} from "@/components/ui/card";
+
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
 

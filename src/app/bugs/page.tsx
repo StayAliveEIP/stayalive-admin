@@ -1,17 +1,11 @@
 "use client"
 
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import Link from 'next/link';
-import {useEffect, useState} from "react";
-import {toast} from "sonner";
 import { Bugs, columns } from "./columns";
+import {useEffect, useState} from "react";
+
+import {
+CardTitle,
+} from "@/components/ui/card";
 import { DataTable } from "./data-table";
 import {Navbar} from "@/components/navbar";
 import apiGetBugs from "@/actions/apiGetBugs";

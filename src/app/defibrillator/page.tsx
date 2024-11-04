@@ -1,21 +1,18 @@
 "use client"
 
+import {Defibrillator, columns} from "./columns";
+import {Dialog, DialogContent, DialogTrigger} from "@/components/ui/dialog";
+import React, {useEffect, useState} from "react";
+
+import {Button} from "@/components/ui/button";
 import {
-    Card,
-    CardFooter,
-    CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-import {Button} from "@/components/ui/button";
-import Link from 'next/link';
-import {Defibrillator, columns} from "./columns";
 import {DataTable} from "./data-table";
-import apiGetDefibrillatorData from '@/actions/apiGetDefibrillatorData'
-import React, {useEffect, useState} from "react";
-import {Navbar} from "@/components/navbar";
-import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from "@/components/ui/dialog";
-import {SelectDefibrillator} from "@/components/select-defibrillator";
 import {ListFilter} from "lucide-react";
+import {Navbar} from "@/components/navbar";
+import {SelectDefibrillator} from "@/components/select-defibrillator";
+import apiGetDefibrillatorData from '@/actions/apiGetDefibrillatorData'
 
 export default function DashboardAdmin() {
     const [defibrillator, setDefibrillator] = useState<Defibrillator[]>([]);

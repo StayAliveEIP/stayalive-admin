@@ -1,28 +1,20 @@
 "use client"
 
-import apiRescuerDownloadDocument from "@/actions/apiRescuerDownloadDocument"
-
 import {
-  Card,
   CardContent,
-  CardFooter,
-  CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import Link from 'next/link';
+import { Rescuers, columns } from "./columns";
 import {useEffect, useState} from "react";
-import {toast} from "sonner";
-import { useRouter} from "next/navigation";
+
+import { Button } from "@/components/ui/button";
+import {Check} from "lucide-react";
+import { DataTable } from "../data-table";
 import {Input} from "@/components/ui/input";
 import {Label} from "@/components/ui/label";
-import { Rescuers, columns } from "./columns";
-import { Menubar, MenubarMenu, MenubarTrigger } from "@/components/ui/menubar"
-import apiGetRescuers from "@/actions/apiGetRescuers";
-import { DataTable } from "../data-table";
 import {Navbar} from "@/components/navbar";
-import {Check, DeleteIcon, List, Link2, Mail, Pencil, Trash} from "lucide-react";
 import apiGetMagicLink from '@/actions/apiGetMagicLink'
+import apiGetRescuers from "@/actions/apiGetRescuers";
 
 export default function RescuersList() {
   const [rescuers, setRescuers] = useState<Rescuers[]>([]);
@@ -55,20 +47,3 @@ export default function RescuersList() {
     )
 
 };
-
-// <DataTable columns={columns} data={rescuers} />
-
-/*
-return (
-      <div>
-      <Card className="w-[555px] m-auto mt-20">
-        <CardHeader>
-          <CardTitle>Liste des sauveteurs</CardTitle>
-        </CardHeader>
-        <Link href="/dashboard">
-          <Button variant="link">Retour à votre dashboard</Button>
-        </Link>
-      </Card>
-      </div>
-    );
-*/

@@ -1,33 +1,20 @@
 "use client"
 
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import React, { useState } from 'react';
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import Link from 'next/link';
-import React, { useState } from 'react';
-import apiSignup from "@/actions/apiSignup";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {Label} from "@/components/ui/label";
-import {
-  Menubar,
-  MenubarMenu,
-  MenubarTrigger,
-} from "@/components/ui/menubar"
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink, NavigationMenuList,
-  NavigationMenuTrigger
-} from "@/components/ui/navigation-menu";
 import {Navbar} from "@/components/navbar";
+import apiSignup from "@/actions/apiSignup";
 
 const SignupAdminAccountPage: React.FC = () => {
   const [firstname, setFirstname] = useState('');

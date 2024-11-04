@@ -1,20 +1,17 @@
 "use client"
 
-import {
-    Card,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
-import {Button} from "@/components/ui/button";
-import Link from 'next/link';
 import {Admin, columns} from "./columns";
-import {DataTable} from "./data-table";
 import {useEffect, useState} from "react";
-import apiGetAdminData from '@/actions/apiGetAdminData'
+
+import {Button} from "@/components/ui/button";
+import {
+CardTitle
+} from "@/components/ui/card";
+import {DataTable} from "./data-table";
+import Link from 'next/link';
 import {Navbar} from "@/components/navbar";
 import {Plus} from "lucide-react";
-
+import apiGetAdminData from '@/actions/apiGetAdminData'
 
 export default function DashboardAdmin() {
     const [accounts, setAccounts] = useState<Admin[]>([]);

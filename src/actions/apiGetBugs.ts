@@ -1,4 +1,4 @@
-import { Bugs, columns } from "@/app/bugs/columns";
+import { Bugs } from "@/app/bugs/columns";
 
 async function apiGetBugs(): Promise<Bugs[]> {
     const bearerToken = localStorage.getItem('bearerToken');

@@ -1,7 +1,6 @@
 "use client"
 
-import { Documents, columns } from "@/app/document/columns"; 
-import { toast } from "sonner"
+import { Documents, columns } from "@/app/document/columns";
 
 const apiRescuerGetDocument = async (rescuerId: string): Promise<Documents[]> => {
   const bearerToken = localStorage.getItem('bearerToken');

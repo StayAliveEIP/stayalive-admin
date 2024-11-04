@@ -1,4 +1,4 @@
-import { Admin, columns } from "@/app/admin/columns";
+import { Admin } from "@/app/admin/columns";
 
 async function apiGetAdminData(): Promise<Admin[]> {
     const bearerToken = localStorage.getItem('bearerToken');

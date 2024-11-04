@@ -1,17 +1,11 @@
 "use client"
 
+import { Documents, columns } from "./columns";
+import {useEffect, useState} from "react";
+
 import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import Link from 'next/link';
-import {useEffect, useState} from "react";
-import {toast} from "sonner";
-import { Documents, columns } from "./columns";
 import { DataTable } from "./data-table";
 import {Navbar} from "@/components/navbar";
 import apiGetDocuments from "@/actions/apiGetDocuments";

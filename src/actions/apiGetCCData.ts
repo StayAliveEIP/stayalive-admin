@@ -1,4 +1,4 @@
-import { CallCenter, columns } from "@/app/dashboard/columns";
+import { CallCenter } from "@/app/dashboard/columns";
 
 async function apiGetCCData(): Promise<CallCenter[]> {
     const bearerToken = localStorage.getItem('bearerToken');

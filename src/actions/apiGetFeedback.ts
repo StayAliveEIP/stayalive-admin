@@ -9,7 +9,6 @@ async function apiGetFeedback(): Promise<Feedback[]> {
           'Authorization': `Bearer ${bearerToken}`
       },
   });
-    //console.log(response.json());
     return response.json();
 }
 

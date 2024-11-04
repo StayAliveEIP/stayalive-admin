@@ -5,18 +5,17 @@ import {
     CardContent,
     CardHeader,
     CardTitle,
-  } from "@/components/ui/card";
+} from "@/components/ui/card";
+
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const RescuerList: React.FC = () => {
-  //const [callCenterID, setCallCenterID] = useState('');
   const [callCenterName, setCallCenterName] = useState('');
   const [callCenterPhone, setCallCenterPhone] = useState('');
   const [callCenterEmail, setCallCenterEmail] = useState('');
   const [callCenterEmailVerif, setCallCenterEmailVerif] = useState('');
-  const [callCenterEmailCode, setCallCenterEmailCode] = useState('');
   const [callCenterStreet, setCallCenterStreet] = useState('');
   const [callCenterCity, setCallCenterCity] = useState('');
   const [callCenterZip, setCallCenterZip] = useState('');

@@ -1,4 +1,4 @@
-import { Defibrillator, columns } from "@/app/defibrillator/columns";
+import { Defibrillator } from "@/app/defibrillator/columns";
 
 async function apiGetDefibrillatorByStatus(status: 'PENDING' | 'VALIDATED' | 'REFUSED'): Promise<Defibrillator[]> {
     const bearerToken = localStorage.getItem('bearerToken');
