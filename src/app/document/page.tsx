@@ -25,7 +25,7 @@ export default function DocumentsList() {
         <div>
           <Navbar/>
           <div className="container mx-auto">
-            <CardTitle className="m-auto flex justify-center mb-20 mt-7">Listes des bugs</CardTitle>
+            <CardTitle className="m-auto flex justify-center mb-20 mt-7">Liste des documents</CardTitle>
               <DataTable columns={columns} data={documents} />
           </div>
         </div>

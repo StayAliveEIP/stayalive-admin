@@ -1,9 +1,5 @@
 "use client"
 
-import { ColumnDef } from "@tanstack/react-table"
-import { MoreHorizontal } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import Link from 'next/link';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,6 +9,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
+import { Button } from "@/components/ui/button"
+import { ColumnDef } from "@tanstack/react-table"
+import Link from 'next/link';
+import { MoreHorizontal } from "lucide-react"
 import apiAccountDeleteID from "@/actions/apiAccountDeleteID";
 
 export type Admin = {
@@ -28,8 +28,8 @@ export const columns: ColumnDef<Admin>[] = [
     {
         id: "actions",
         cell: ({ row }) => {
-          const payment = row.original
-     
+          const payment = row.original;
+
           return (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -41,10 +41,21 @@ export const columns: ColumnDef<Admin>[] = [
               <DropdownMenuContent align="end">
                 <DropdownMenuLabel>Action</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={async () => apiAccountDeleteID(payment.id)}>Supprimer cet administrateur</DropdownMenuItem>
+                <DropdownMenuItem 
+                  onClick={async () => {
+                    try {
+                      await apiAccountDeleteID(payment.id);
+                      window.location.reload();
+                    } catch (error) {
+                      console.error("Erreur lors de la suppression :", error);
+                    }
+                  }}
+                >
+                  Supprimer cet administrateur
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-          )
+          );
         },
       },
 

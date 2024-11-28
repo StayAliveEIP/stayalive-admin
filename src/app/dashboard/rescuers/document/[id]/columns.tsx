@@ -11,8 +11,6 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import {toast} from "sonner";
-import apiRescuerGetDocument from "@/actions/apiRescuerGetDocument"
 import apiRescuerDownloadDocument from "@/actions/apiRescuerDownloadDocument"
 
 export type Documents = {

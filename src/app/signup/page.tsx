@@ -13,6 +13,7 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {Label} from "@/components/ui/label";
+import Link from 'next/link';
 import {Navbar} from "@/components/navbar";
 import apiSignup from "@/actions/apiSignup";
 
@@ -56,7 +57,9 @@ return (
     />
     </CardContent>
     <CardFooter className="flex justify-between">
-      <Button onClick={() => apiSignup( firstname, lastname, email )}>Créer un compte</Button>
+      <Link href="/admin">
+        <Button onClick={() => apiSignup( firstname, lastname, email )}>Créer un compte</Button>
+      </Link>
     </CardFooter>
   </Card>
   </div>

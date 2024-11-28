@@ -1,8 +1,5 @@
 "use client"
 
-import {ColumnDef} from "@tanstack/react-table"
-import {MoreHorizontal} from "lucide-react"
-import {Button} from "@/components/ui/button"
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -11,9 +8,14 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import {toast} from "sonner";
+
+import {Button} from "@/components/ui/button"
+import {ColumnDef} from "@tanstack/react-table"
 import Link from 'next/link';
+import {MoreHorizontal} from "lucide-react"
 import apiRescuerGetDocument from "@/actions/apiRescuerGetDocument"
+import apiSuspendRescuer from "@/actions/apiSuspendRescuer"
+import {toast} from "sonner";
 
 export type Rescuers = {
     _id: string,
@@ -38,15 +40,20 @@ export const columns: ColumnDef<Rescuers>[] = [
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                     <DropdownMenuLabel>Action</DropdownMenuLabel>
-                        <Link href={`/dashboard/rescuers/document`}>
+                    <Link href={`/dashboard/rescuers/document/${payment._id}`}>
                             <DropdownMenuItem onClick={async () => apiRescuerGetDocument(payment._id)}>Afficher les documents du sauveteur</DropdownMenuItem>
                         </Link>
+                        <DropdownMenuItem onClick={async () => apiSuspendRescuer(payment._id)}>Suspendre ce sauveteur</DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
             )
         },
     },
 
+    {
+        accessorKey: "_id",
+        header: "id",
+    },
     {
         accessorKey: "firstname",
         header: "Prenom",
